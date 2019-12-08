@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8442179009622378739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8442179009622378749}
+  - component: {fileID: 8442179009622378748}
+  m_Layer: 0
+  m_Name: Expert Guitar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8442179009622378749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442179009622378739}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8442179009622378748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442179009622378739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1678a9349ecad304888edad26a04be52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 3
+  _speed: 16
+  _solidNotes:
+  - {fileID: 4400627473677722, guid: 1045ea66b790bf540bcf5df207972c83, type: 3}
+  - {fileID: 4626359991842112, guid: 01b9310d07202bd43aae6dead229c865, type: 3}
+  - {fileID: 4014135116710048, guid: 43388091a96bce747b5c4c4f122ae893, type: 3}
+  - {fileID: 4413157362768838, guid: 86d778fe174d8eb4488e45e7189f9b26, type: 3}
+  - {fileID: 4504917627061404, guid: 4dcbeed3cf1d49244a2db3bcfbd18bd8, type: 3}
+  _path: /ChartLoader/ChartLoader/Songs/Troubles/Troubles.chart
+  _cameraMovement: {fileID: 0}
+  _music: {fileID: 0}
+  _starPowerPrefab: {fileID: 4109334711829988, guid: 11bbda1d49dc14b489fa8a659b8ad58c,
+    type: 3}
+  _sectionPrefab: {fileID: 4622555703069306, guid: c851ea94b3f3a3e4cb465aa97217e19d,
+    type: 3}
+  _bpmPrefab: {fileID: 4322006517868176, guid: 44c73da133c080a4fbf59de2fd61ac91, type: 3}
