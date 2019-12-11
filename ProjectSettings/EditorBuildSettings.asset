@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MusicPlay.unity
     guid: ffb5848a0b7f37e4a955a5b5ac6567f6
+  - enabled: 1
+    path: Assets/Scenes/Beatmaps.unity
+    guid: b3b7031417825a942816bdb990d94365
   m_configObjects: {}

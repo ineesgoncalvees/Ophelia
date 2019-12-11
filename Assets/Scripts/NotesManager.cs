@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class NotesManager : MonoBehaviour
 {
+    public bool isRight;
+
     private Button button;
     private GameObject currentNote;
     private Touch touch;
@@ -20,18 +22,21 @@ public class NotesManager : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.touchCount > 0)
-        if (Input.GetKeyDown("space"))
+        if (Input.touchCount > 0)
         {
-            //touch = Input.GetTouch(0);
+            touch = Input.GetTouch(0);
             DetectMove();
         }
+        else if (Input.GetKeyDown("space"))
+            DetectMove();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Notes")
         {
+            if (other.GetComponent<NoteBeahviour>().isRight != isRight) return;
+
             button.interactable = true;
             currentNote = other.gameObject;
             AddClickListener(currentNote);
@@ -40,7 +45,7 @@ public class NotesManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (currentNote.activeInHierarchy)
+        if (currentNote != null && currentNote.activeInHierarchy)
         {
             if ((other.tag == "Notes") && !(currentNote.layer == LayerMask.NameToLayer("Hold")))
             {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6500530144901870815}
   - component: {fileID: 6500530144901870812}
   - component: {fileID: 6500530144901870813}
+  - component: {fileID: 4798691260362904165}
   m_Layer: 0
   m_Name: NotaDireita
   m_TagString: Notes
@@ -96,4 +97,17 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.00000011920929, y: -0.00000011920929}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.25
+--- !u!114 &4798691260362904165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6500530144901870814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbc9310bce013847ae09cf0ec97ef6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRight: 1

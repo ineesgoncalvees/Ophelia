@@ -28,8 +28,7 @@ public class NotesMovement : MonoBehaviour
         {
             if (!hasStarted)
             {
-                //if (Input.touchCount > 0)
-                if (Input.GetKeyDown("space"))
+                if (Input.touchCount > 0 || Input.GetKeyDown("space"))
                 {
                     hasStarted = true;
                 }
@@ -43,8 +42,7 @@ public class NotesMovement : MonoBehaviour
         {
             if (!hasStarted)
             {
-                //if (Input.touchCount > 0)
-                if (Input.GetKeyDown("space"))
+                if (Input.touchCount > 0 || Input.GetKeyDown("space"))
                 {
                     hasStarted = true;
                 }

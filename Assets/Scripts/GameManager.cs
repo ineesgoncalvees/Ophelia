@@ -40,8 +40,7 @@ public class GameManager : MonoBehaviour
     {
         if (!startPlaying)
         {
-            //if (Input.touchCount > 0)
-            if(Input.GetKeyDown("space"))
+            if (Input.touchCount > 0 || Input.GetKeyDown("space"))
             {
                 startPlaying = true;
 
