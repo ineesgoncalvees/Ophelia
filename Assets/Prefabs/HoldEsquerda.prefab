@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3740164500548885770}
   - component: {fileID: 3740164500548885769}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TapHold (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3740164501088490552}
   - component: {fileID: 3740164501088490550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: yellow_button04 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3740164501438600560}
   - component: {fileID: 3740164501438600559}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TapHold (3)
   m_TagString: Relice
   m_Icon: {fileID: 0}
@@ -411,9 +411,10 @@ GameObject:
   - component: {fileID: 3740164501440808693}
   - component: {fileID: 3740164501440808691}
   - component: {fileID: 3740164501440808692}
-  m_Layer: 0
+  - component: {fileID: 6096064144997734196}
+  m_Layer: 9
   m_Name: HoldEsquerda
-  m_TagString: Untagged
+  m_TagString: Notes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,9 +426,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3740164501440808694}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.37, y: -4.14, z: 8.6143}
-  m_LocalScale: {x: 150, y: 150, z: 150}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children:
   - {fileID: 3740164502129132951}
   - {fileID: 3740164501088490552}
@@ -468,6 +469,19 @@ CircleCollider2D:
   m_Offset: {x: 5.77, y: -0.1}
   serializedVersion: 2
   m_Radius: 1.76
+--- !u!114 &6096064144997734196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3740164501440808694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbc9310bce013847ae09cf0ec97ef6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRight: 0
 --- !u!1 &3740164502129132952
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3740164502129132951}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Principal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,7 +525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3740164502294511171}
   - component: {fileID: 3740164502294511172}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: yellow_button04
   m_TagString: Untagged
   m_Icon: {fileID: 0}

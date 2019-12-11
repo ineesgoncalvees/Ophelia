@@ -25,10 +25,10 @@ public class NotesManager : MonoBehaviour
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
-            DetectMove();
+            //DetectMove();
         }
-        else if (Input.GetKeyDown("space"))
-            DetectMove();
+        //else if (Input.GetKeyDown("space"))
+            //DetectMove();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,6 +53,11 @@ public class NotesManager : MonoBehaviour
                 GameManager.instance.NoteMiss();
                 RemoveClickListener();
             }
+            else if(currentNote.layer == LayerMask.NameToLayer("Hold"))
+            {
+                currentNote.transform.GetChild(0).gameObject.SetActive(false);
+                GameManager.instance.NoteMiss();
+            }
         }
     }
 
@@ -72,7 +77,7 @@ public class NotesManager : MonoBehaviour
             ().InverseTransformVector(note.transform.position).x;
         bool left = note.GetComponentInParent<NotesMovement>().isLeft;
 
-        if (!(currentNote.layer == LayerMask.NameToLayer("Hold")))
+        //if (!(currentNote.layer == LayerMask.NameToLayer("Hold")))
         {
             print(notePosition);
             note.SetActive(false);
@@ -108,7 +113,6 @@ public class NotesManager : MonoBehaviour
                 {
                     GameManager.instance.PerfectHit();
                 }
-
             }
         }
     }
@@ -117,14 +121,10 @@ public class NotesManager : MonoBehaviour
     {
         if (currentNote != null)
         {
-            if (currentNote.layer == LayerMask.NameToLayer("Hold") && (currentNote.tag == "Relice"))
+            if (currentNote.layer == LayerMask.NameToLayer("Hold"))
             {
-                AddClickListener(currentNote);
-                GameManager.instance.NoteHit();
-                print("entrei");
-            }
-            else if (currentNote.layer == LayerMask.NameToLayer("Hold"))
-            {
+                //if(touch.phase == TouchPhase.Stationary)
+
                 currentNote.transform.GetChild(0).gameObject.SetActive(false);
                 GameManager.instance.NoteMiss();
             }
