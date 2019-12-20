@@ -22,16 +22,11 @@ public class NotesMovement : MonoBehaviour
         starPlaying = false;
     }
 
-    private void Update()
-    {
-        PlayMusic();
-        print(music.enabled);
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
         MoveNotes();
+        PlayMusic();
     }
 
     private void MoveNotes()
@@ -43,7 +38,6 @@ public class NotesMovement : MonoBehaviour
                 if (Input.touchCount > 0 || Input.GetKeyDown("space"))
                 {
                     hasStarted = true;
-                    starPlaying = true;
                 }
             }
             else
@@ -69,7 +63,14 @@ public class NotesMovement : MonoBehaviour
 
     private void PlayMusic()
     {
-        //if (starPlaying)
-            music.Play();
+        if (!starPlaying)
+        {
+            if (Input.touchCount > 0 || Input.GetKeyDown("space"))
+            {
+                starPlaying = true;
+
+                music.Play();
+            }
+        }
     }
 }
