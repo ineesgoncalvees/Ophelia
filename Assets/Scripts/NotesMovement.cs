@@ -11,12 +11,21 @@ public class NotesMovement : MonoBehaviour
 
     public bool isLeft;
 
+    private bool starPlaying;
     private bool hasStarted;
 
     // Start is called before the first frame update
     void Start()
     {
         velMov = velMov / 60f;
+        hasStarted = false;
+        starPlaying = false;
+    }
+
+    private void Update()
+    {
+        PlayMusic();
+        print(music.enabled);
     }
 
     // Update is called once per frame
@@ -34,13 +43,12 @@ public class NotesMovement : MonoBehaviour
                 if (Input.touchCount > 0 || Input.GetKeyDown("space"))
                 {
                     hasStarted = true;
+                    starPlaying = true;
                 }
             }
             else
             {
                 transform.position -= new Vector3(velMov * Time.fixedDeltaTime, 0f, 0f);
-                music.Play();
-                print(music.enabled);
             }
         }
         else
@@ -57,5 +65,11 @@ public class NotesMovement : MonoBehaviour
                 transform.position -= new Vector3(-velMov * Time.fixedDeltaTime, 0f, 0f);
             }
         }
+    }
+
+    private void PlayMusic()
+    {
+        //if (starPlaying)
+            music.Play();
     }
 }
