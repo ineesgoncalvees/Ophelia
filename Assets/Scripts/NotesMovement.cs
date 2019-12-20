@@ -6,6 +6,9 @@ public class NotesMovement : MonoBehaviour
 {
     [SerializeField]
     private float velMov;
+    [SerializeField]
+    private AudioSource music;
+
     public bool isLeft;
 
     private bool hasStarted;
@@ -17,7 +20,7 @@ public class NotesMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         MoveNotes();
     }
@@ -35,7 +38,9 @@ public class NotesMovement : MonoBehaviour
             }
             else
             {
-                transform.position -= new Vector3(velMov * Time.deltaTime, 0f, 0f);
+                transform.position -= new Vector3(velMov * Time.fixedDeltaTime, 0f, 0f);
+                music.Play();
+                print(music.enabled);
             }
         }
         else
@@ -49,10 +54,8 @@ public class NotesMovement : MonoBehaviour
             }
             else
             {
-                transform.position -= new Vector3(-velMov * Time.deltaTime, 0f, 0f);
+                transform.position -= new Vector3(-velMov * Time.fixedDeltaTime, 0f, 0f);
             }
         }
     }
-
-
 }

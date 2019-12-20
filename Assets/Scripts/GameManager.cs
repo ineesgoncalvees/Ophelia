@@ -5,10 +5,6 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private AudioSource music;
-
-    private bool startPlaying;
     private int currentScore;
     private int scorePerGood = 100;
     private int scorePerGreat = 120;
@@ -29,24 +25,6 @@ public class GameManager : MonoBehaviour
         instance = this;
         currentCombo = 0;
         currentScore = 0;
-    }
-
-    void Update()
-    {
-        PlayMusic();
-    }
-
-    private void PlayMusic()
-    {
-        if (!startPlaying)
-        {
-            if (Input.touchCount > 0 || Input.GetKeyDown("space"))
-            {
-                startPlaying = true;
-
-                music.Play();
-            }
-        }
     }
 
     public void NoteHit()
