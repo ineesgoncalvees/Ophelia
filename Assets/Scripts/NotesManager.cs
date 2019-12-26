@@ -20,16 +20,16 @@ public class NotesManager : MonoBehaviour
         button = GetComponent<Button>();
     }
 
-    private void Update()
-    {
-        if (Input.touchCount > 0)
-        {
-            touch = Input.GetTouch(0);
-            //DetectMove();
-        }
-        //else if (Input.GetKeyDown("space"))
-            //DetectMove();
-    }
+    //private void Update()
+    //{
+    //    if (Input.touchCount > 0)
+    //    {
+    //        touch = Input.GetTouch(0);
+    //        //DetectMove();
+    //    }
+    //    //else if (Input.GetKeyDown("space"))
+    //        //DetectMove();
+    //}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -47,13 +47,15 @@ public class NotesManager : MonoBehaviour
     {
         if (currentNote != null && currentNote.activeInHierarchy)
         {
+            if (other.GetComponent<NoteBeahviour>().isRight != isRight) return;
+
             if ((other.tag == "Notes") && !(currentNote.layer == LayerMask.NameToLayer("Hold")))
             {
                 currentNote = null;
                 GameManager.instance.NoteMiss();
                 RemoveClickListener();
             }
-            else if(currentNote.layer == LayerMask.NameToLayer("Hold"))
+            else if (currentNote.layer == LayerMask.NameToLayer("Hold"))
             {
                 currentNote.transform.GetChild(0).gameObject.SetActive(false);
                 GameManager.instance.NoteMiss();
@@ -153,5 +155,3 @@ public class NotesManager : MonoBehaviour
         }
     }
 }
-
-
