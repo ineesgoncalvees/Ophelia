@@ -19,21 +19,19 @@ public class Menus : MonoBehaviour
 
     private void Start()
     {
+        start.gameObject.SetActive(true);
         main.gameObject.SetActive(false);
         story.gameObject.SetActive(false);
 
         StartCoroutine(StartScreen());
-
-        main.gameObject.SetActive(true);
     }
 
     private IEnumerator StartScreen()
     {
-        start.gameObject.SetActive(true);
-
         yield return new WaitForSeconds(3);
 
         start.gameObject.SetActive(false);
+        main.gameObject.SetActive(true);
     }
 
     public void SinglePlayer()
