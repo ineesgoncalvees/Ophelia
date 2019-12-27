@@ -49,4 +49,10 @@ public class Menus : MonoBehaviour
         main.SetActive(false);
         story.SetActive(true);
     }
+    public void Return()
+    {
+        story.SetActive(false);
+        main.SetActive(true);
+        
+    }
 }
