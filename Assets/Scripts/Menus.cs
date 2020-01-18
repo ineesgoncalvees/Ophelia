@@ -17,6 +17,12 @@ public class Menus : MonoBehaviour
     public GameObject coverOne;
     public GameObject coverTwo;
 
+    [SerializeField]
+    private AudioSource songOnePreview;
+
+    [SerializeField]
+    private AudioSource songTwoPreview;
+
     private void Awake()
     {
         start = GameObject.Find("Start");
@@ -76,12 +82,16 @@ public class Menus : MonoBehaviour
     public void SongOne() {
         coverOne.gameObject.SetActive(true);
         coverTwo.gameObject.SetActive(false);
+        songOnePreview.Play();
+        songTwoPreview.Stop();
     }
 
     public void SongTwo()
     {
         coverOne.gameObject.SetActive(false);
         coverTwo.gameObject.SetActive(true);
+        songTwoPreview.Play();
+        songOnePreview.Stop();
     }
 
     public void Story()
