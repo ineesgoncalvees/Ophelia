@@ -49,17 +49,16 @@ public class NotesManager : MonoBehaviour
         {
             if (other.GetComponent<NoteBeahviour>().isRight != isRight) return;
 
-            if ((other.tag == "Notes") && !(currentNote.layer == LayerMask.NameToLayer("Hold")))
+            if ((other.tag == "Notes") && (currentNote.layer != LayerMask.NameToLayer("Hold")))
             {
                 currentNote = null;
                 GameManager.instance.NoteMiss();
                 RemoveClickListener();
             }
-            else if (currentNote.layer == LayerMask.NameToLayer("Hold"))
-            {
-                currentNote.transform.GetChild(0).gameObject.SetActive(false);
-                GameManager.instance.NoteMiss();
-            }
+            //else if (currentNote.layer == LayerMask.NameToLayer("Hold"))
+            //{
+            //    currentNote.transform.GetChild(0).gameObject.SetActive(false);
+            //}
         }
     }
 
@@ -119,19 +118,19 @@ public class NotesManager : MonoBehaviour
         }
     }
 
-    private void OnMouseUpAsButton()
-    {
-        if (currentNote != null)
-        {
-            if (currentNote.layer == LayerMask.NameToLayer("Hold"))
-            {
-                //if(touch.phase == TouchPhase.Stationary)
+    //private void OnMouseUpAsButton()
+    //{
+    //    if (currentNote != null)
+    //    {
+    //        if (currentNote.layer == LayerMask.NameToLayer("Hold"))
+    //        {
+    //            //if(touch.phase == TouchPhase.Stationary)
 
-                currentNote.transform.GetChild(0).gameObject.SetActive(false);
-                GameManager.instance.NoteMiss();
-            }
-        }
-    }
+    //            currentNote.transform.GetChild(0).gameObject.SetActive(false);
+    //            GameManager.instance.NoteMiss();
+    //        }
+    //    }
+    //}
 
     private void DetectMove()
     {
