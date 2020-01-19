@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading;
 
 public class NotesManager : MonoBehaviour
 {
-    public bool isRight;
+    [SerializeField]
+    private bool isRight;
+    //[SerializeField]
+    //private Text fullCombo;
+
 
     private Button button;
     private GameObject currentNote;
@@ -13,11 +18,14 @@ public class NotesManager : MonoBehaviour
     private Vector2 startPos;
     private Vector2 direction;
     private float distance;
+    private bool noMiss;
     private NotesMovement notesOrientation;
 
     private void Start()
     {
         button = GetComponent<Button>();
+        noMiss = true;
+        //fullCombo.GetComponent<Text>().enabled = false;
     }
 
     //private void Update()
@@ -54,6 +62,7 @@ public class NotesManager : MonoBehaviour
                 currentNote = null;
                 GameManager.instance.NoteMiss();
                 RemoveClickListener();
+                noMiss = false;
             }
             //else if (currentNote.layer == LayerMask.NameToLayer("Hold"))
             //{
@@ -76,12 +85,15 @@ public class NotesManager : MonoBehaviour
     {
         float notePosition = note.transform.parent.GetComponent<RectTransform>
             ().InverseTransformVector(note.transform.position).x;
+        //float notePosition = note.transform.position.x;
         bool left = note.GetComponentInParent<NotesMovement>().isLeft;
 
         //if (!(currentNote.layer == LayerMask.NameToLayer("Hold")))
         {
             print(notePosition);
+            button.transform.localScale = new Vector3(2f, 2f, 2f);
             note.SetActive(false);
+
 
             if (left)
             {
@@ -115,6 +127,8 @@ public class NotesManager : MonoBehaviour
                     GameManager.instance.PerfectHit();
                 }
             }
+
+            button.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
     }
 
@@ -152,5 +166,20 @@ public class NotesManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    //private void FullCombo()
+    //{
+    //    noMiss = false;
+
+    //    if (!noMiss)
+    //    {
+    //        fullCombo.GetComponent<Text>().enabled = true;
+    //    }
+    //}
+
+    private void AllPerfect()
+    {
+
     }
 }
