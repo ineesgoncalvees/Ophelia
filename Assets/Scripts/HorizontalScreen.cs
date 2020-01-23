@@ -8,7 +8,7 @@ using UnityEngine;
 public class HorizontalScreen : MonoBehaviour
 {
     /// <summary>
-    /// Metodo Awake() que corre no principio o programa
+    /// Metodo Awake() que corre no princípio o programa
     /// </summary>
     void Awake()
     {

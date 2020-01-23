@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class Menus : MonoBehaviour
 {
 
-    // Variaveis dos menus
+    // Variáveis dos menus
     [SerializeField]
     private GameObject start;
     [SerializeField]
@@ -19,26 +19,26 @@ public class Menus : MonoBehaviour
     [SerializeField]
     private GameObject songSelect;
 
-    // Variaveis das musicas
+    // Variáveis das músicas
     [SerializeField]
     private GameObject song1;
     [SerializeField]
     private GameObject song2;
 
-    // Variaveis para as imagens no menu de selacao
+    // Variáveis para as imagens no menu de selação
     [SerializeField]
     private GameObject coverOne;
     [SerializeField]
     private GameObject coverTwo;
 
-    // Variaveis para as previesws das musicas no menu de selacao
+    // Variáveis para as previews das músicas no menu de selação
     [SerializeField]
     private AudioSource songOnePreview;
     [SerializeField]
     private AudioSource songTwoPreview;
 
     /// <summary>
-    /// Metodo Awake() que corre no principo do programa e encontra os game
+    /// Método Awake() que corre no princípio do programa e encontra os game
     /// objects
     /// </summary>
     private void Awake()
@@ -57,8 +57,8 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
-    /// Metedo Start() chamado no principio do programa mas depois do Awake()
-    /// e que inicia as variaveis
+    /// Método Start() chamado no princípio do programa, mas depois do Awake()
+    /// e que inicia as variáveis
     /// </summary>
     private void Start()
     {
@@ -77,7 +77,7 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo do tipo IEnumerator que mostra um ecra por 3 segundos no inicio
+    /// Método do tipo IEnumerator que mostra um ecrã por 3 segundos no início
     /// do programa e depois do desativa
     /// </summary>
     /// <returns></returns>
@@ -90,7 +90,7 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo que corre quando jogador carrega no botao do single-player e 
+    /// Método que corre quando jogador carrega no botão do single-player e 
     /// mostra o menu correspondente, desativando o anterior
     /// </summary>
     public void SinglePlayer()
@@ -106,7 +106,7 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo que ira iniciar o menu do multiplay, ainda a ser implementado
+    /// Método que irá iniciar o menu do multiplayer, ainda a ser implementado
     /// </summary>
     public void Multiplayer()
     {
@@ -114,8 +114,8 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo que corre quando o jogador seleciona uma musica, mostra a imagem
-    /// e o preview da musica um, desativando as da outra musica
+    /// Método que corre quando o jogador seleciona uma música, mostra a imagem
+    /// e o preview da música um, desativando as da outra música
     /// </summary>
     public void SongOne() {
         coverOne.gameObject.SetActive(true);
@@ -125,8 +125,8 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo que corre quando o jogador seleciona uma musica, mostra a imagem
-    /// e o preview da musica dois, desativando as da outra musica
+    /// Método que corre quando o jogador seleciona uma música, mostra a imagem
+    /// e o preview da música dois, desativando as da outra música
     /// </summary>
     public void SongTwo()
     {
@@ -137,7 +137,7 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo que corre o menu da historia
+    /// Método que corre o menu da história
     /// </summary>
     public void Story()
     {
@@ -146,7 +146,7 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo que muda de cena para a musica um
+    /// Método que muda de cena para a música um
     /// </summary>
     public void StartSongOne()
     {
@@ -154,7 +154,7 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo que muda de cena para a musica dois
+    /// Método que muda de cena para a música dois
     /// </summary>
     public void StartSongTwo()
     {
@@ -162,7 +162,7 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo que sai do menu single-player para o de selecao do modo de jogo
+    /// Método que sai do menu single-player para o de seleção do modo de jogo
     /// </summary>
     public void Return()
     {
