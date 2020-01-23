@@ -8,7 +8,7 @@
 ## Distribuição de tarefas
 
 Neste projeto quem fez a maioria do código foi a Inês Gonçalves, sendo que
-apenas a classe Menu foi feita pela Inês Nunes.
+apenas a classe Menus foi feita pela Inês Nunes.
 
 ## Repostório Git
 
@@ -25,12 +25,12 @@ ritmo é simples em termos de organização de código e adicionar novas feature
 Por isso nao senti nessecidade de usar nenhum dos lecionados na aula.
 
 Quero também trazer à atenção que todo o código presente neste projeto foi feito
-para ter apenas um protótipo funcional e não um projeto finalizado, por isso 
-muito do código foi feito para depois poder ser melhorado.
+para ser apenas um protótipo funcional e não um projeto finalizado, por isso 
+muito do código pode e deve vir a ser melhorado.
 
 O seguinte fluxograma demonstra como o programa funciona de forma simplificada.
 
-![UML](uml.svg);
+![UML](uml.png);
 
 ## Referências
 

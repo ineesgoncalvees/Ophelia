@@ -19,7 +19,6 @@ public class NotesManager : MonoBehaviour
     private Vector2 startPos;
     private Vector2 direction;
     private float distance;
-    private NotesMovement notesOrientation;
 
     /// <summary>
     /// Método Start()
