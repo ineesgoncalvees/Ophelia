@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     private int scorePerGreat = 120;
     private int scorePerPerfect = 160;
 
-
     [SerializeField]
     private TextMeshProUGUI pointsText;
     [SerializeField]

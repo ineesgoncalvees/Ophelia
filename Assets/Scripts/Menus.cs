@@ -3,26 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Classe que gere os menus
+/// </summary>
 public class Menus : MonoBehaviour
 {
 
-    public GameObject start;
-    public GameObject main;
-    public GameObject story;
-    public GameObject songSelect;
+    // Variaveis dos menus
+    [SerializeField]
+    private GameObject start;
+    [SerializeField]
+    private GameObject main;
+    [SerializeField]
+    private GameObject story;
+    [SerializeField]
+    private GameObject songSelect;
 
-    public GameObject song1;
-    public GameObject song2;
+    // Variaveis das musicas
+    [SerializeField]
+    private GameObject song1;
+    [SerializeField]
+    private GameObject song2;
 
-    public GameObject coverOne;
-    public GameObject coverTwo;
+    // Variaveis para as imagens no menu de selacao
+    [SerializeField]
+    private GameObject coverOne;
+    [SerializeField]
+    private GameObject coverTwo;
 
+    // Variaveis para as previesws das musicas no menu de selacao
     [SerializeField]
     private AudioSource songOnePreview;
-
     [SerializeField]
     private AudioSource songTwoPreview;
 
+    /// <summary>
+    /// Metodo Awake() que corre no principo do programa e encontra os game
+    /// objects
+    /// </summary>
     private void Awake()
     {
         start = GameObject.Find("Start");
@@ -38,6 +56,10 @@ public class Menus : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Metedo Start() chamado no principio do programa mas depois do Awake()
+    /// e que inicia as variaveis
+    /// </summary>
     private void Start()
     {
         start.gameObject.SetActive(true);
@@ -54,6 +76,11 @@ public class Menus : MonoBehaviour
         StartCoroutine(StartScreen());
     }
 
+    /// <summary>
+    /// Metodo do tipo IEnumerator que mostra um ecra por 3 segundos no inicio
+    /// do programa e depois do desativa
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator StartScreen()
     {
         yield return new WaitForSeconds(3);
@@ -62,6 +89,10 @@ public class Menus : MonoBehaviour
         main.gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// Metodo que corre quando jogador carrega no botao do single-player e 
+    /// mostra o menu correspondente, desativando o anterior
+    /// </summary>
     public void SinglePlayer()
     {
         main.gameObject.SetActive(false);
@@ -74,11 +105,18 @@ public class Menus : MonoBehaviour
         coverTwo.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Metodo que ira iniciar o menu do multiplay, ainda a ser implementado
+    /// </summary>
     public void Multiplayer()
     {
         //To be implemented
     }
 
+    /// <summary>
+    /// Metodo que corre quando o jogador seleciona uma musica, mostra a imagem
+    /// e o preview da musica um, desativando as da outra musica
+    /// </summary>
     public void SongOne() {
         coverOne.gameObject.SetActive(true);
         coverTwo.gameObject.SetActive(false);
@@ -86,6 +124,10 @@ public class Menus : MonoBehaviour
         songTwoPreview.Stop();
     }
 
+    /// <summary>
+    /// Metodo que corre quando o jogador seleciona uma musica, mostra a imagem
+    /// e o preview da musica dois, desativando as da outra musica
+    /// </summary>
     public void SongTwo()
     {
         coverOne.gameObject.SetActive(false);
@@ -94,23 +136,34 @@ public class Menus : MonoBehaviour
         songOnePreview.Stop();
     }
 
+    /// <summary>
+    /// Metodo que corre o menu da historia
+    /// </summary>
     public void Story()
     {
         main.SetActive(false);
         story.SetActive(true);
     }
 
+    /// <summary>
+    /// Metodo que muda de cena para a musica um
+    /// </summary>
     public void StartSongOne()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    /// <summary>
+    /// Metodo que muda de cena para a musica dois
+    /// </summary>
     public void StartSongTwo()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
-
+    /// <summary>
+    /// Metodo que sai do menu single-player para o de selecao do modo de jogo
+    /// </summary>
     public void Return()
     {
         story.SetActive(false);

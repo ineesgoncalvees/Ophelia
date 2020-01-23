@@ -132,6 +132,9 @@ public class NotesManager : MonoBehaviour
         }
     }
 
+    // Metodo que ainda nao sei se vou usar, ainda estou a descobrir como fazer
+    // esta parte
+
     //private void OnMouseUpAsButton()
     //{
     //    if (currentNote != null)
@@ -146,6 +149,9 @@ public class NotesManager : MonoBehaviour
     //    }
     //}
 
+    /// <summary>
+    /// A ser implementado, ainda nao funciona
+    /// </summary>
     private void DetectMove()
     {
         if (currentNote != null)
@@ -168,18 +174,24 @@ public class NotesManager : MonoBehaviour
         }
     }
 
-    //private void FullCombo()
-    //{
-    //    noMiss = false;
+    /// <summary>
+    /// A ser implementado
+    /// </summary>
+    private void FullCombo()
+    {
+        //    noMiss = false;
 
-    //    if (!noMiss)
-    //    {
-    //        fullCombo.GetComponent<Text>().enabled = true;
-    //    }
-    //}
+        //    if (!noMiss)
+        //    {
+        //        fullCombo.GetComponent<Text>().enabled = true;
+        //    }
+    }
 
+    /// <summary>
+    /// A ser implementado
+    /// </summary>
     private void AllPerfect()
     {
-
+        // A ser implementado
     }
 }
