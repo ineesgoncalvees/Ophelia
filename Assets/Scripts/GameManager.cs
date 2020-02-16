@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
         pointsText.text = "" + currentScore;
         currentCombo++;
         comboText.text = "" + currentCombo;
+
+        if (currentCombo == 10)
+            currentCombo *= 2;
     }
 
     /// <summary>

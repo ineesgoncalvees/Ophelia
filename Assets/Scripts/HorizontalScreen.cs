@@ -12,6 +12,6 @@ public class HorizontalScreen : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        Screen.orientation = ScreenOrientation.LandscapeRight;
     }
 }

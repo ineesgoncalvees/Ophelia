@@ -131,7 +131,7 @@ public class NotesManager : MonoBehaviour
         {
             print(notePosition);
             // Aumenta escala do botão para dar feedback ao jogador
-            button.transform.localScale = new Vector3(2f, 2f, 2f);
+           // button.transform.localScale = new Vector3(2f, 2f, 2f);
             // Desativa a nota quando acerta
             note.SetActive(false);
 
@@ -173,7 +173,7 @@ public class NotesManager : MonoBehaviour
             }
 
             // Coloca escala do botão como estava antes
-            button.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            //button.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
     }
 
