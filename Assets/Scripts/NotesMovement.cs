@@ -15,9 +15,6 @@ public class NotesMovement : MonoBehaviour
     [SerializeField]
     private AudioSource music;
 
-    [SerializeField]
-    private GameObject final;
-
     // Variável booleana que define se as notas vão para a esquerda ou não
     public bool isLeft;
 
@@ -33,7 +30,6 @@ public class NotesMovement : MonoBehaviour
         velMov = velMov / 60f;
         hasStarted = false;
         starPlaying = false;
-        final.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -100,17 +96,5 @@ public class NotesMovement : MonoBehaviour
             music.Play();
 
         }
-    }
-    public IEnumerator WaitForSound(AudioClip Sound)
-    {
-        yield return new WaitUntil(() => music.isPlaying == false);
-
-        final.gameObject.SetActive(true);
-
-    }
-
-    public void Return()
-    {
-        SceneManager.LoadScene("Menu");
     }
 }
