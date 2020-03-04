@@ -15,11 +15,6 @@ public class NotesManager : MonoBehaviour
 
     private Button button;
     private GameObject currentNote;
-    private Touch touch;
-    private Vector2 startPos;
-    private Vector2 direction;
-    private float distance;
-    private NotesMovement notesOrientation;
 
     /// <summary>
     /// Método Start()
@@ -28,19 +23,6 @@ public class NotesManager : MonoBehaviour
     {
         button = GetComponent<Button>();
     }
-
-    // Ainda não sei se vou fazer assim a chamada do método DetectMove()
-
-    //private void Update()
-    //{
-    //    if (Input.touchCount > 0)
-    //    {
-    //        touch = Input.GetTouch(0);
-    //        //DetectMove();
-    //    }
-    //    //else if (Input.GetKeyDown("space"))
-    //        //DetectMove();
-    //}
 
     /// <summary>
     /// Método chamado quando um collider 2D passa pelos botões que são trigger
@@ -194,31 +176,4 @@ public class NotesManager : MonoBehaviour
     //        }
     //    }
     //}
-
-    /// <summary>
-    /// A ser implementado, ainda não funciona
-    /// </summary>
-    private void DetectMove()
-    {
-        // Se houver nota e for o swipe supostamente ele vê se o jogador
-        // moveu o dedo enquanto carrega
-        if (currentNote != null)
-        {
-            if (currentNote.layer == LayerMask.NameToLayer("Swipe"))
-            {
-                if (touch.phase == TouchPhase.Began)
-                {
-                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                    startPos = ray.GetPoint(distance);
-                    //print(startPos);
-                }
-                else if (touch.phase == TouchPhase.Moved)
-                {
-                    Debug.Log("moveu");
-                    direction = touch.position - startPos;
-                    //print(direction);
-                }
-            }
-        }
-    }
 }

@@ -13,12 +13,15 @@ public class GameManager : MonoBehaviour
     private int scorePerGood = 100;
     private int scorePerGreat = 120;
     private int scorePerPerfect = 160;
+    private Touch touch;
 
     // Variáveis para mostrar os pontos e combo ao jogador
     [SerializeField]
     private TextMeshProUGUI pointsText;
     [SerializeField]
     private TextMeshProUGUI comboText;
+    [SerializeField]
+    private GameObject particules;
 
     // Variável que guarda o combo
     private int currentCombo;
@@ -38,6 +41,20 @@ public class GameManager : MonoBehaviour
         currentCombo = 0;
         currentScore = 0;
         //fullCombo.GetComponent<Text>().enabled = false;
+    }
+
+    private void Update()
+    {
+        if(touch.phase == TouchPhase.Began)
+        {
+            particules.SetActive(true);
+            particules.transform.position = touch.position;
+            
+        }
+        else if(touch.phase == TouchPhase.Ended)
+        {
+            particules.SetActive(false);
+        }
     }
 
     /// <summary>
