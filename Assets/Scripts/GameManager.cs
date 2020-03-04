@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     // Variáveis que guardam o valor da pontuação conforme melhor perfomance
     private int currentScore;
     private int scorePerGood = 100;
-    private int scorePerGreat = 120;
+    private int scorePerGreat = 140;
     private int scorePerPerfect = 160;
 
     // Variáveis para mostrar os pontos e combo ao jogador
@@ -50,8 +50,12 @@ public class GameManager : MonoBehaviour
         currentCombo++;
         comboText.text = "" + currentCombo;
 
-        if (currentCombo == 10)
-            currentCombo *= 2;
+        if (currentCombo >= 20 && currentCombo < 50)
+            currentScore *= 2;
+        else if (currentCombo >= 50 && currentCombo < 100)
+            currentScore *= 3;
+        else if (currentCombo >= 100)
+            currentScore *= 4;
     }
 
     /// <summary>
@@ -92,6 +96,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Missed");
         currentCombo = 0;
         comboText.text = "" + currentCombo;
+        
     }
 
     /// <summary>

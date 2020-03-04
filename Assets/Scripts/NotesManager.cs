@@ -15,10 +15,6 @@ public class NotesManager : MonoBehaviour
 
     private Button button;
     private GameObject currentNote;
-    private Touch touch;
-    private Vector2 startPos;
-    private Vector2 direction;
-    private float distance;
 
     /// <summary>
     /// Método Start()
@@ -27,19 +23,6 @@ public class NotesManager : MonoBehaviour
     {
         button = GetComponent<Button>();
     }
-
-    // Ainda não sei se vou fazer assim a chamada do método DetectMove()
-
-    //private void Update()
-    //{
-    //    if (Input.touchCount > 0)
-    //    {
-    //        touch = Input.GetTouch(0);
-    //        //DetectMove();
-    //    }
-    //    //else if (Input.GetKeyDown("space"))
-    //        //DetectMove();
-    //}
 
     /// <summary>
     /// Método chamado quando um collider 2D passa pelos botões que são trigger
@@ -130,8 +113,6 @@ public class NotesManager : MonoBehaviour
         //if (!(currentNote.layer == LayerMask.NameToLayer("Hold")))
         {
             print(notePosition);
-            // Aumenta escala do botão para dar feedback ao jogador
-           // button.transform.localScale = new Vector3(2f, 2f, 2f);
             // Desativa a nota quando acerta
             note.SetActive(false);
 
@@ -169,53 +150,6 @@ public class NotesManager : MonoBehaviour
                 else if (notePosition > 17.1 && notePosition < 18.27)
                 {
                     GameManager.instance.PerfectHit();
-                }
-            }
-
-            // Coloca escala do botão como estava antes
-            //button.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-        }
-    }
-
-    // M+etodo que ainda não sei se vou usar, ainda estou a descobrir como fazer
-    // esta parte
-
-    //private void OnMouseUpAsButton()
-    //{
-    //    if (currentNote != null)
-    //    {
-    //        if (currentNote.layer == LayerMask.NameToLayer("Hold"))
-    //        {
-    //            //if(touch.phase == TouchPhase.Stationary)
-
-    //            currentNote.transform.GetChild(0).gameObject.SetActive(false);
-    //            GameManager.instance.NoteMiss();
-    //        }
-    //    }
-    //}
-
-    /// <summary>
-    /// A ser implementado, ainda não funciona
-    /// </summary>
-    private void DetectMove()
-    {
-        // Se houver nota e for o swipe supostamente ele vê se o jogador
-        // moveu o dedo enquanto carrega
-        if (currentNote != null)
-        {
-            if (currentNote.layer == LayerMask.NameToLayer("Swipe"))
-            {
-                if (touch.phase == TouchPhase.Began)
-                {
-                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                    startPos = ray.GetPoint(distance);
-                    //print(startPos);
-                }
-                else if (touch.phase == TouchPhase.Moved)
-                {
-                    Debug.Log("moveu");
-                    direction = touch.position - startPos;
-                    //print(direction);
                 }
             }
         }
