@@ -45,13 +45,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(touch.phase == TouchPhase.Began)
+        if(touch.tapCount > 0)
         {
             particules.SetActive(true);
             particules.transform.position = touch.position;
             
         }
-        else if(touch.phase == TouchPhase.Ended)
+        else if(touch.tapCount == 0)
         {
             particules.SetActive(false);
         }
