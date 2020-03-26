@@ -18,12 +18,18 @@ public class Menus : MonoBehaviour
     private GameObject story;
     [SerializeField]
     private GameObject songSelect;
+    [SerializeField]
+    private GameObject multiplayer;
 
     // Variáveis das músicas
     [SerializeField]
     private GameObject song1;
     [SerializeField]
     private GameObject song2;
+    [SerializeField]
+    private GameObject song3;
+    [SerializeField]
+    private GameObject song4;
 
     // Variáveis para as imagens no menu de selação
     [SerializeField]
@@ -47,6 +53,7 @@ public class Menus : MonoBehaviour
         main = GameObject.Find("Main");
         story = GameObject.Find("Story");
         songSelect = GameObject.Find("Song Select");
+        multiplayer = GameObject.Find("Multiplayer");
 
         song1 = GameObject.Find("Song1");
         song2 = GameObject.Find("Song2");
@@ -66,6 +73,7 @@ public class Menus : MonoBehaviour
         main.gameObject.SetActive(false);
         story.gameObject.SetActive(false);
         songSelect.gameObject.SetActive(false);
+        multiplayer.gameObject.SetActive(false);
 
         song1.gameObject.SetActive(false);
         song2.gameObject.SetActive(false);
@@ -110,7 +118,15 @@ public class Menus : MonoBehaviour
     /// </summary>
     public void Multiplayer()
     {
-        //To be implemented
+        main.gameObject.SetActive(false);
+        songSelect.gameObject.SetActive(false);
+        multiplayer.gameObject.SetActive(true);
+
+        song1.gameObject.SetActive(true);
+        coverOne.gameObject.SetActive(false);
+
+        song2.gameObject.SetActive(true);
+        coverTwo.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -162,6 +178,22 @@ public class Menus : MonoBehaviour
     }
 
     /// <summary>
+    /// Método que muda de cena para a música três
+    /// </summary>
+    public void StartSongThree()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+    }
+
+    /// <summary>
+    /// Método que muda de cena para a música quatro
+    /// </summary>
+    public void StartSongFour()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
+    }
+
+    /// <summary>
     /// Método que sai do menu single-player para o de seleção do modo de jogo
     /// </summary>
     public void Return()
@@ -169,6 +201,7 @@ public class Menus : MonoBehaviour
         story.SetActive(false);
 
         songSelect.gameObject.SetActive(false);
+        multiplayer.gameObject.SetActive(false);
 
         song1.gameObject.SetActive(false);
         song2.gameObject.SetActive(false);
