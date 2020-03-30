@@ -12,6 +12,8 @@ public class NotesManager : MonoBehaviour
     // Variável booleana que diz que são as notas da direita ou da esquerda
     [SerializeField]
     private bool isRight;
+    [SerializeField]
+    private float minDistance;
 
     private Button button;
     private GameObject currentNote;
@@ -112,51 +114,34 @@ public class NotesManager : MonoBehaviour
 
         //if (!(currentNote.layer == LayerMask.NameToLayer("Hold")))
         {
-            print(notePosition);
-            // Aumenta escala do botão para dar feedback ao jogador
-            button.transform.localScale = new Vector3(2f, 2f, 2f);
+            //print(notePosition);
             // Desativa a nota quando acerta
             note.SetActive(false);
 
             // Se for esquerda
             if (left)
             {
-                // E estiver numa certa posição, develove a acuracy ao
-                // GameManager para este dar a pontuação adequada
-                if (notePosition < -19.9 || notePosition > -17.25)
+                float distance = Vector3.Distance(note.transform.position, transform.position);
+
+                if(distance < minDistance)
                 {
-                    GameManager.instance.GoodHit();
-                }
-                else if ((notePosition > -19.9 && notePosition < -19.17) ||
-                  (notePosition > -18 && notePosition < -17.25))
-                {
-                    GameManager.instance.GreatHit();
-                }
-                else if (notePosition > -19.17 && notePosition < -18)
-                {
-                    GameManager.instance.PerfectHit();
+                    float score = Mathf.Lerp(150f, 100f, distance / minDistance);
+                    GameManager.instance.currentScore += (int)score;
+                    GameManager.instance.NoteHit();
                 }
             }
             // Se for direita
             else
             {
-                if (notePosition < 16.34 || notePosition > 19)
+                float distance = Vector3.Distance(note.transform.position, transform.position);
+
+                if (distance < minDistance)
                 {
-                    GameManager.instance.GoodHit();
-                }
-                else if ((notePosition > 16.34 && notePosition < 17.1) ||
-                  (notePosition > 18.27 && notePosition < 19))
-                {
-                    GameManager.instance.GreatHit();
-                }
-                else if (notePosition > 17.1 && notePosition < 18.27)
-                {
-                    GameManager.instance.PerfectHit();
+                    float score = Mathf.Lerp(150f, 100f, distance / minDistance);
+                    GameManager.instance.currentScore += (int)score;
+                    GameManager.instance.NoteHit();
                 }
             }
-
-            // Coloca escala do botão como estava antes
-            button.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
     }
 

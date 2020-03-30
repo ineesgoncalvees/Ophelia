@@ -9,7 +9,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     // Variáveis que guardam o valor da pontuação conforme melhor perfomance
-    private int currentScore;
+    public float currentScore;
     private int scorePerGood = 100;
     private int scorePerGreat = 120;
     private int scorePerPerfect = 160;
@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI pointsText;
     [SerializeField]
     private TextMeshProUGUI comboText;
-    [SerializeField]
-    private GameObject particules;
+    //[SerializeField]
+    //private GameObject particules;
 
     // Variável que guarda o combo
     private int currentCombo;
@@ -43,19 +43,19 @@ public class GameManager : MonoBehaviour
         //fullCombo.GetComponent<Text>().enabled = false;
     }
 
-    private void Update()
-    {
-        if(touch.tapCount > 0)
-        {
-            particules.SetActive(true);
-            particules.transform.position = touch.position;
-            
-        }
-        else if(touch.tapCount == 0)
-        {
-            particules.SetActive(false);
-        }
-    }
+    //private void Update()
+    //{
+    //    if(touch.tapCount > 0)
+    //    {
+    //        particules.SetActive(true);
+    //        particules.transform.position = touch.position;
+
+    //    }
+    //    else if(touch.tapCount == 0)
+    //    {
+    //        particules.SetActive(false);
+    //    }
+    //}
 
     /// <summary>
     /// Método que a cada nota que o jogador acerta atualiza a pontuação e o
@@ -74,7 +74,6 @@ public class GameManager : MonoBehaviour
     public void GoodHit()
     {
         print("good");
-        currentScore += scorePerGood;
         NoteHit();
     }
 
@@ -84,7 +83,6 @@ public class GameManager : MonoBehaviour
     public void GreatHit()
     {
         print("great");
-        currentScore += scorePerGreat;
         NoteHit();
     }
 
@@ -94,7 +92,6 @@ public class GameManager : MonoBehaviour
     public void PerfectHit()
     {
         print("perfect");
-        currentScore += scorePerPerfect;
         NoteHit();
     }
 
