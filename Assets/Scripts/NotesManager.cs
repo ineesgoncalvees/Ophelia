@@ -18,6 +18,9 @@ public class NotesManager : MonoBehaviour
     private Button button;
     private GameObject currentNote;
 
+    [HideInInspector]
+    public int currentButton;
+
     /// <summary>
     /// Método Start()
     /// </summary>
@@ -104,11 +107,6 @@ public class NotesManager : MonoBehaviour
     /// <param name="note"></param>
     private void CheckHit(GameObject note)
     {
-        // Vai buscar a posição da nota
-        float notePosition = note.transform.parent.GetComponent<RectTransform>
-            ().InverseTransformVector(note.transform.position).x;
-        //float notePosition = note.transform.position.x;
-
         // Vai buscar valor da variável isLeft da classe do movimento das notas
         bool left = note.GetComponentInParent<NotesMovement>().isLeft;
 
@@ -127,7 +125,19 @@ public class NotesManager : MonoBehaviour
                 {
                     float score = Mathf.Lerp(150f, 100f, distance / minDistance);
                     GameManager.instance.currentScore += (int)score;
-                    GameManager.instance.NoteHit();
+
+                    if(score <= 150 && score > 100)
+                    {
+                        GameManager.instance.PerfectHit();
+                    }
+                    else if(score <= 100 && score > 50)
+                    {
+                        GameManager.instance.GreatHit();
+                    }
+                    else if (score <= 50 && score > 0)
+                    {
+                        GameManager.instance.GoodHit();
+                    }
                 }
             }
             // Se for direita
@@ -139,7 +149,19 @@ public class NotesManager : MonoBehaviour
                 {
                     float score = Mathf.Lerp(150f, 100f, distance / minDistance);
                     GameManager.instance.currentScore += (int)score;
-                    GameManager.instance.NoteHit();
+
+                    if (score <= 150 && score > 100)
+                    {
+                        GameManager.instance.PerfectHit();
+                    }
+                    else if (score <= 100 && score > 50)
+                    {
+                        GameManager.instance.GreatHit();
+                    }
+                    else if (score <= 50 && score > 0)
+                    {
+                        GameManager.instance.GoodHit();
+                    }
                 }
             }
         }

@@ -4,15 +4,22 @@ using UnityEngine;
 using TMPro;
 
 /// <summary>
+/// Estrutura que contem array de particulas
+/// </summary>
+[System.Serializable]
+public struct PSHolder
+{
+    public ParticleSystem[] particleSystems;
+}
+
+
+/// <summary>
 /// Classe que vai gerir os combos e a pontuação dos jogadores
 /// </summary>
 public class GameManager : MonoBehaviour
 {
     // Variáveis que guardam o valor da pontuação conforme melhor perfomance
     public float currentScore;
-    private int scorePerGood = 100;
-    private int scorePerGreat = 120;
-    private int scorePerPerfect = 160;
     private Touch touch;
 
     // Variáveis para mostrar os pontos e combo ao jogador
@@ -20,8 +27,8 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI pointsText;
     [SerializeField]
     private TextMeshProUGUI comboText;
-    //[SerializeField]
-    //private GameObject particules;
+    [SerializeField]
+    private PSHolder[] particleSystems;
 
     // Variável que guarda o combo
     private int currentCombo;
@@ -43,19 +50,31 @@ public class GameManager : MonoBehaviour
         //fullCombo.GetComponent<Text>().enabled = false;
     }
 
-    //private void Update()
-    //{
-    //    if(touch.tapCount > 0)
-    //    {
-    //        particules.SetActive(true);
-    //        particules.transform.position = touch.position;
+    private void Update()
+    {
+#if UNITY_EDITOR
+        int nCount = 0;
+        if (Input.GetMouseButton(0)) 
+           nCount = 1;
+        Vector2 pt = Input.mousePosition;
+#else
+        int nCount = Input.touchCount;
+        Vector2 pt = Vector2.zero;
+        if(nCount > 0)
+            pt = Input.touches[0].position;
+#endif
+    }
 
-    //    }
-    //    else if(touch.tapCount == 0)
-    //    {
-    //        particules.SetActive(false);
-    //    }
-    //}
+    void ActivatePS(int button)
+    {
+        PSHolder psHolder = particleSystems[button];
+
+        foreach (var ps in psHolder.particleSystems)
+        {
+            ps.Clear();
+            ps.Play();
+        }
+    }
 
     /// <summary>
     /// Método que a cada nota que o jogador acerta atualiza a pontuação e o
@@ -66,6 +85,7 @@ public class GameManager : MonoBehaviour
         pointsText.text = "" + currentScore;
         currentCombo++;
         comboText.text = "" + currentCombo;
+        ActivatePS();
     }
 
     /// <summary>
