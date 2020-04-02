@@ -51,12 +51,8 @@ public class NotesMovement : MonoBehaviour
             // E ainda nao está a mexer
             if (!hasStarted)
             {
-                // Quando tocam no ecrã ou no espaço
-                if (Input.touchCount > 0 || Input.GetKeyDown("space"))
-                {
-                    // hasStarted fica a true
-                    hasStarted = true;
-                }
+                // hasStarted fica a true
+                hasStarted = true;
             }
             // Se hasStarted for true
             else
@@ -70,10 +66,7 @@ public class NotesMovement : MonoBehaviour
         {
             if (!hasStarted)
             {
-                if (Input.touchCount > 0 || Input.GetKeyDown("space"))
-                {
-                    hasStarted = true;
-                }
+                hasStarted = true;
             }
             // Move notas para a direita
             else
@@ -91,15 +84,11 @@ public class NotesMovement : MonoBehaviour
         // Se a música ainda não está a tocar
         if (!starPlaying)
         {
-            // Quando tocam no ecrã ou no espaço
-            if (Input.touchCount > 0 || Input.GetKeyDown("space"))
-            {
-                // startPlaying fica true
-                starPlaying = true;
+            // startPlaying fica true
+            starPlaying = true;
 
-                // Música começa
-                music.Play();
-            }
+            // Música começa
+            music.Play();
         }
     }
 }
