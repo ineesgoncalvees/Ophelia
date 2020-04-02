@@ -14,6 +14,8 @@ public class NotesManager : MonoBehaviour
     private bool isRight;
     [SerializeField]
     private float minDistance;
+    [SerializeField]
+    private int iButton;
 
     private Button button;
     private GameObject currentNote;
@@ -21,11 +23,14 @@ public class NotesManager : MonoBehaviour
     [HideInInspector]
     public int currentButton;
 
+    public static NotesManager instance;
+
     /// <summary>
     /// Método Start()
     /// </summary>
     private void Start()
     {
+        instance = this;
         button = GetComponent<Button>();
     }
 
@@ -123,20 +128,22 @@ public class NotesManager : MonoBehaviour
 
                 if(distance < minDistance)
                 {
-                    float score = Mathf.Lerp(150f, 100f, distance / minDistance);
+                    float score = Mathf.Lerp(150f, 0f, distance / minDistance);
                     GameManager.instance.currentScore += (int)score;
 
-                    if(score <= 150 && score > 100)
+                    print(score);
+
+                    if(score <= 150 && score > 120)
                     {
-                        GameManager.instance.PerfectHit();
+                        GameManager.instance.NoteHit(iButton, HitType.Perfect);
                     }
-                    else if(score <= 100 && score > 50)
+                    else if(score <= 120 && score > 50)
                     {
-                        GameManager.instance.GreatHit();
+                        GameManager.instance.NoteHit(iButton, HitType.Great);
                     }
                     else if (score <= 50 && score > 0)
                     {
-                        GameManager.instance.GoodHit();
+                        GameManager.instance.NoteHit(iButton, HitType.Good);
                     }
                 }
             }
@@ -152,15 +159,15 @@ public class NotesManager : MonoBehaviour
 
                     if (score <= 150 && score > 100)
                     {
-                        GameManager.instance.PerfectHit();
+                        GameManager.instance.NoteHit(iButton, HitType.Perfect);
                     }
                     else if (score <= 100 && score > 50)
                     {
-                        GameManager.instance.GreatHit();
+                        GameManager.instance.NoteHit(iButton, HitType.Great);
                     }
                     else if (score <= 50 && score > 0)
                     {
-                        GameManager.instance.GoodHit();
+                        GameManager.instance.NoteHit(iButton, HitType.Good);
                     }
                 }
             }

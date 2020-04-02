@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
 {
     // Variáveis que guardam o valor da pontuação conforme melhor perfomance
     public float currentScore;
-    private Touch touch;
 
     // Variáveis para mostrar os pontos e combo ao jogador
     [SerializeField]
@@ -65,54 +64,27 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
-    void ActivatePS(int button)
+    void ActivatePS(int button, HitType type)
     {
-        PSHolder psHolder = particleSystems[button];
+        ParticleSystem ps = particleSystems[button].particleSystems[(int)type];
 
-        foreach (var ps in psHolder.particleSystems)
-        {
-            ps.Clear();
-            ps.Play();
-        }
+        ps.Clear();
+        ps.Play();
+
+        print(type);
     }
 
     /// <summary>
     /// Método que a cada nota que o jogador acerta atualiza a pontuação e o
     /// combo do jogador
     /// </summary>
-    public void NoteHit()
+    public void NoteHit(int iButton, HitType type)
     {
         pointsText.text = "" + currentScore;
         currentCombo++;
         comboText.text = "" + currentCombo;
-        ActivatePS();
-    }
 
-    /// <summary>
-    /// Método chamado quando o jogador faz good
-    /// </summary>
-    public void GoodHit()
-    {
-        print("good");
-        NoteHit();
-    }
-
-    /// <summary>
-    /// Método chamado quando o jogador faz um great
-    /// </summary>
-    public void GreatHit()
-    {
-        print("great");
-        NoteHit();
-    }
-
-    /// <summary>
-    /// Método chamado quando jogador faz um perfect
-    /// </summary>
-    public void PerfectHit()
-    {
-        print("perfect");
-        NoteHit();
+        ActivatePS(iButton, type);
     }
 
     /// <summary>
