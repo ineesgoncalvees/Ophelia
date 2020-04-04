@@ -8,4 +8,5 @@ using UnityEngine;
 public class NoteBeahviour : MonoBehaviour
 {
     public bool isRight;
+    public bool isHold;
 }

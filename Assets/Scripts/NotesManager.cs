@@ -70,21 +70,14 @@ public class NotesManager : MonoBehaviour
             if (other.GetComponent<NoteBeahviour>().isRight != isRight) return;
 
             // Se for uma nota que não o hold
-            if ((other.tag == "Notes") && (currentNote.layer != LayerMask.NameToLayer("Hold")))
+            if ((other.tag == "Notes"))
             {
                 // Devolve que o jogador falhou
                 currentNote = null;
                 GameManager.instance.NoteMiss();
+                //currentNote.transform.GetChild(0).gameObject.SetActive(false);
                 RemoveClickListener();
             }
-            // Ainda tenho que descobrir como desativar o hold quando o jogador
-            // falha, da forma que está comentada ele não reconhece se o jogador
-            // carregou ou não
-
-            //else if (currentNote.layer == LayerMask.NameToLayer("Hold"))
-            //{
-            //    currentNote.transform.GetChild(0).gameObject.SetActive(false);
-            //}
         }
     }
 
@@ -115,79 +108,59 @@ public class NotesManager : MonoBehaviour
         // Vai buscar valor da variável isLeft da classe do movimento das notas
         bool left = note.GetComponentInParent<NotesMovement>().isLeft;
 
-        //if (!(currentNote.layer == LayerMask.NameToLayer("Hold")))
+        //print(notePosition);
+        // Desativa a nota quando acerta
+        note.SetActive(false);
+
+        // Se for esquerda
+        if (left)
         {
-            //print(notePosition);
-            // Desativa a nota quando acerta
-            note.SetActive(false);
+            float distance = Vector3.Distance(note.transform.position, transform.position);
 
-            // Se for esquerda
-            if (left)
+            if (distance < minDistance)
             {
-                float distance = Vector3.Distance(note.transform.position, transform.position);
+                float score = Mathf.Lerp(150f, 0f, distance / minDistance);
+                GameManager.instance.currentScore += (int)score;
 
-                if(distance < minDistance)
+                print(score);
+
+                if (score <= 150 && score > 120)
                 {
-                    float score = Mathf.Lerp(150f, 0f, distance / minDistance);
-                    GameManager.instance.currentScore += (int)score;
-
-                    print(score);
-
-                    if(score <= 150 && score > 120)
-                    {
-                        GameManager.instance.NoteHit(iButton, HitType.Perfect);
-                    }
-                    else if(score <= 120 && score > 50)
-                    {
-                        GameManager.instance.NoteHit(iButton, HitType.Great);
-                    }
-                    else if (score <= 50 && score > 0)
-                    {
-                        GameManager.instance.NoteHit(iButton, HitType.Good);
-                    }
+                    GameManager.instance.NoteHit(iButton, HitType.Perfect);
+                }
+                else if (score <= 120 && score > 50)
+                {
+                    GameManager.instance.NoteHit(iButton, HitType.Great);
+                }
+                else if (score <= 50 && score > 0)
+                {
+                    GameManager.instance.NoteHit(iButton, HitType.Good);
                 }
             }
-            // Se for direita
-            else
+        }
+        // Se for direita
+        else
+        {
+            float distance = Vector3.Distance(note.transform.position, transform.position);
+
+            if (distance < minDistance)
             {
-                float distance = Vector3.Distance(note.transform.position, transform.position);
+                float score = Mathf.Lerp(150f, 100f, distance / minDistance);
+                GameManager.instance.currentScore += (int)score;
 
-                if (distance < minDistance)
+                if (score <= 150 && score > 100)
                 {
-                    float score = Mathf.Lerp(150f, 100f, distance / minDistance);
-                    GameManager.instance.currentScore += (int)score;
-
-                    if (score <= 150 && score > 100)
-                    {
-                        GameManager.instance.NoteHit(iButton, HitType.Perfect);
-                    }
-                    else if (score <= 100 && score > 50)
-                    {
-                        GameManager.instance.NoteHit(iButton, HitType.Great);
-                    }
-                    else if (score <= 50 && score > 0)
-                    {
-                        GameManager.instance.NoteHit(iButton, HitType.Good);
-                    }
+                    GameManager.instance.NoteHit(iButton, HitType.Perfect);
+                }
+                else if (score <= 100 && score > 50)
+                {
+                    GameManager.instance.NoteHit(iButton, HitType.Great);
+                }
+                else if (score <= 50 && score > 0)
+                {
+                    GameManager.instance.NoteHit(iButton, HitType.Good);
                 }
             }
         }
     }
-
-    // M+etodo que ainda não sei se vou usar, ainda estou a descobrir como fazer
-    // esta parte
-
-    //private void OnMouseUpAsButton()
-    //{
-    //    if (currentNote != null)
-    //    {
-    //        if (currentNote.layer == LayerMask.NameToLayer("Hold"))
-    //        {
-    //            //if(touch.phase == TouchPhase.Stationary)
-
-    //            currentNote.transform.GetChild(0).gameObject.SetActive(false);
-    //            GameManager.instance.NoteMiss();
-    //        }
-    //    }
-    //}
 }
