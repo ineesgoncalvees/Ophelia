@@ -36,12 +36,20 @@ public class Menus : MonoBehaviour
     private GameObject coverOne;
     [SerializeField]
     private GameObject coverTwo;
+    [SerializeField]
+    private GameObject coverThree;
+    [SerializeField]
+    private GameObject coverFour;
 
     // Variáveis para as previews das músicas no menu de selação
     [SerializeField]
     private AudioSource songOnePreview;
     [SerializeField]
     private AudioSource songTwoPreview;
+    [SerializeField]
+    private AudioSource songThreePreview;
+    [SerializeField]
+    private AudioSource songFourPreview;
 
     /// <summary>
     /// Método Awake() que corre no princípio do programa e encontra os game
@@ -52,14 +60,18 @@ public class Menus : MonoBehaviour
         start = GameObject.Find("Start");
         main = GameObject.Find("Main");
         story = GameObject.Find("Story");
-        songSelect = GameObject.Find("Song Select");
+        songSelect = GameObject.Find("Singleplayer");
         multiplayer = GameObject.Find("Multiplayer");
 
         song1 = GameObject.Find("Song1");
         song2 = GameObject.Find("Song2");
+        song3 = GameObject.Find("Song3");
+        song4 = GameObject.Find("Song4");
 
         coverOne = GameObject.Find("SongOneCover");
         coverTwo = GameObject.Find("SongTwoCover");
+        coverThree = GameObject.Find("SongThreeCover");
+        coverFour = GameObject.Find("SongFourCover");
 
     }
 
@@ -77,9 +89,13 @@ public class Menus : MonoBehaviour
 
         song1.gameObject.SetActive(false);
         song2.gameObject.SetActive(false);
+        song3.gameObject.SetActive(false);
+        song4.gameObject.SetActive(false);
 
         coverOne.gameObject.SetActive(false);
         coverTwo.gameObject.SetActive(false);
+        coverThree.gameObject.SetActive(false);
+        coverFour.gameObject.SetActive(false);
 
         StartCoroutine(StartScreen());
     }
@@ -122,11 +138,11 @@ public class Menus : MonoBehaviour
         songSelect.gameObject.SetActive(false);
         multiplayer.gameObject.SetActive(true);
 
-        song1.gameObject.SetActive(true);
-        coverOne.gameObject.SetActive(false);
+        song3.gameObject.SetActive(true);
+        coverThree.gameObject.SetActive(false);
 
-        song2.gameObject.SetActive(true);
-        coverTwo.gameObject.SetActive(false);
+        song4.gameObject.SetActive(true);
+        coverFour.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -152,6 +168,24 @@ public class Menus : MonoBehaviour
         songOnePreview.Stop();
     }
 
+    public void SongThree() {
+        coverThree.gameObject.SetActive(true);
+        coverFour.gameObject.SetActive(false);
+        songThreePreview.Play();
+        songFourPreview.Stop();
+    }
+
+    /// <summary>
+    /// Método que corre quando o jogador seleciona uma música, mostra a imagem
+    /// e o preview da música dois, desativando as da outra música
+    /// </summary>
+    public void SongFour()
+    {
+        coverThree.gameObject.SetActive(false);
+        coverFour.gameObject.SetActive(true);
+        songFourPreview.Play();
+        songThreePreview.Stop();
+    }
     /// <summary>
     /// Método que corre o menu da história
     /// </summary>
@@ -205,6 +239,8 @@ public class Menus : MonoBehaviour
 
         song1.gameObject.SetActive(false);
         song2.gameObject.SetActive(false);
+        song3.gameObject.SetActive(false);
+        song4.gameObject.SetActive(false);
 
         coverOne.gameObject.SetActive(false);
         coverTwo.gameObject.SetActive(false);
