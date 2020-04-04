@@ -75,8 +75,14 @@ public class NotesManager : MonoBehaviour
                 // Devolve que o jogador falhou
                 currentNote = null;
                 GameManager.instance.NoteMiss();
-                //currentNote.transform.GetChild(0).gameObject.SetActive(false);
                 RemoveClickListener();
+            }
+            else if(other.GetComponent<NoteBeahviour>().isHold == true)
+            {
+                currentNote = null;
+                GameManager.instance.NoteMiss();
+                RemoveClickListener();
+                currentNote.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
     }
