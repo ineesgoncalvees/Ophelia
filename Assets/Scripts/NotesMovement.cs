@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// Classe que começa a música e o movimento das notas
@@ -13,6 +14,13 @@ public class NotesMovement : MonoBehaviour
     // Variável para a música
     [SerializeField]
     private AudioSource music;
+    [SerializeField]
+    private GameObject finalPainel;
+
+    [SerializeField]
+    private TextMeshProUGUI pointsText;
+    [SerializeField]
+    private TextMeshProUGUI comboText;
 
     // Variável booleana que define se as notas vão para a esquerda ou não
     public bool isLeft;
@@ -29,6 +37,7 @@ public class NotesMovement : MonoBehaviour
         velMov = velMov / 60f;
         hasStarted = false;
         starPlaying = false;
+        finalPainel.SetActive(false);
     }
 
     /// <summary>
@@ -76,6 +85,8 @@ public class NotesMovement : MonoBehaviour
         }
     }
 
+    private bool isDone = false;
+
     /// <summary>
     /// Método que inícia música
     /// </summary>
@@ -90,5 +101,23 @@ public class NotesMovement : MonoBehaviour
             // Música começa
             music.Play();
         }
+        else
+        {
+            if (!music.isPlaying && isDone == false)
+            {
+                StartCoroutine(GameManager.instance.FullCombo());
+                StartCoroutine(FinalPainel());
+                StopCoroutine(GameManager.instance.FullCombo());
+                isDone = true;
+            }
+        }
+    }
+
+    private IEnumerator FinalPainel()
+    {
+        yield return new WaitForSeconds(4);
+        finalPainel.SetActive(true);
+        pointsText.text = "" + GameManager.instance.currentScore;
+        comboText.text = "" + GameManager.instance.maxCombo;
     }
 }

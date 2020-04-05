@@ -59,3 +59,6 @@ TagManager:
   - name: Ophelia
     uniqueID: 3727820351
     locked: 0
+  - name: Final
+    uniqueID: 976285937
+    locked: 0

@@ -19,21 +19,31 @@ public struct PSHolder
 public class GameManager : MonoBehaviour
 {
     // Variáveis que guardam o valor da pontuação conforme melhor perfomance
+    [HideInInspector]
     public float currentScore;
+    // Variável que guarda o combo
+    [HideInInspector]
+    public int currentCombo;
+    [HideInInspector]
+    public int maxCombo;
 
     // Variáveis para mostrar os pontos e combo ao jogador
     [SerializeField]
     private TextMeshProUGUI pointsText;
     [SerializeField]
     private TextMeshProUGUI comboText;
+    // Variável que vai guardar fullcombo
+    [SerializeField]
+    private TextMeshProUGUI fullCombo;
     [SerializeField]
     private PSHolder[] particleSystems;
 
-    // Variável que guarda o combo
-    private int currentCombo;
-    // Variável que vai guardar fullcombo
-    //[SerializeField]
-    //private Text fullCombo;
+    [SerializeField]
+    private GameObject ophelia;
+    [SerializeField]
+    private GameObject meio;
+
+    private bool miss;
 
     // Intancia da classe GameManager
     public static GameManager instance;
@@ -46,7 +56,8 @@ public class GameManager : MonoBehaviour
         instance = this;
         currentCombo = 0;
         currentScore = 0;
-        //fullCombo.GetComponent<Text>().enabled = false;
+        miss = false;
+        fullCombo.GetComponent<TextMeshProUGUI>().enabled = false;
     }
 
     private void Update()
@@ -84,6 +95,8 @@ public class GameManager : MonoBehaviour
         currentCombo++;
         comboText.text = "" + currentCombo;
 
+        maxCombo = Mathf.Max(currentCombo);
+
         ActivatePS(iButton, type);
     }
 
@@ -92,22 +105,25 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void NoteMiss()
     {
-        //Debug.Log("Missed");
         currentCombo = 0;
         comboText.text = "" + currentCombo;
+        miss = true;
     }
 
     /// <summary>
     /// A ser implementado
     /// </summary>
-    private void FullCombo()
+    public IEnumerator FullCombo()
     {
-        //    noMiss = false;
-
-        //    if (!noMiss)
-        //    {
-        //        fullCombo.GetComponent<Text>().enabled = true;
-        //    }
+        if(!miss)
+        {
+            yield return new WaitForSeconds(1);
+            ophelia.SetActive(false);
+            meio.SetActive(false);
+            fullCombo.GetComponent<TextMeshProUGUI>().enabled = true;
+            yield return new WaitForSeconds(2);
+            fullCombo.GetComponent<TextMeshProUGUI>().enabled = false;
+        }
     }
 
     /// <summary>
