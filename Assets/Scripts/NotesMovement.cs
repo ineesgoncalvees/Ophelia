@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Classe que começa a música e o movimento das notas
@@ -119,5 +120,10 @@ public class NotesMovement : MonoBehaviour
         finalPainel.SetActive(true);
         pointsText.text = "" + GameManager.instance.currentScore;
         comboText.text = "" + GameManager.instance.maxCombo;
+    }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
