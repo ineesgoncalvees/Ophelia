@@ -29,6 +29,9 @@ public class NotesMovement : MonoBehaviour
     // Variáveis para definir se a música e as notas já começaram
     private bool starPlaying;
     private bool hasStarted;
+    private bool isPaused;
+    private bool isActive;
+    private bool firstPlay;
 
     /// <summary>
     /// Método Start() que inícia os valores das variáveis
@@ -38,6 +41,9 @@ public class NotesMovement : MonoBehaviour
         velMov = velMov / 60f;
         hasStarted = false;
         starPlaying = false;
+        isPaused = false;
+        isActive = false;
+        firstPlay = true;
         finalPainel.SetActive(false);
     }
 
@@ -55,33 +61,39 @@ public class NotesMovement : MonoBehaviour
     /// </summary>
     private void MoveNotes()
     {
-        // Se for esquerda
-        if (isLeft)
+
+        if (!isPaused)
         {
-            // E ainda nao está a mexer
-            if (!hasStarted)
+            // Se for esquerda
+            if (isLeft)
             {
-                // hasStarted fica a true
-                hasStarted = true;
+                // E ainda nao está a mexer
+                if (!hasStarted)
+                {
+                    // hasStarted fica a true
+                    hasStarted = true;
+                }
+                // Se hasStarted for true
+                else
+                {
+                    // Notas movem para a esquerda
+                    transform.position -= new Vector3(velMov * Time.fixedDeltaTime, 0f, 0f);
+                    isActive = false;
+                }
             }
-            // Se hasStarted for true
+            // Se for direita
             else
             {
-                // Notas movem para a esquerda
-                transform.position -= new Vector3(velMov * Time.fixedDeltaTime, 0f, 0f);
-            }
-        }
-        // Se for direita
-        else
-        {
-            if (!hasStarted)
-            {
-                hasStarted = true;
-            }
-            // Move notas para a direita
-            else
-            {
-                transform.position -= new Vector3(-velMov * Time.fixedDeltaTime, 0f, 0f);
+                if (!hasStarted)
+                {
+                    hasStarted = true;
+                }
+                // Move notas para a direita
+                else
+                {
+                    transform.position -= new Vector3(-velMov * Time.fixedDeltaTime, 0f, 0f);
+                    isActive = false;
+                }
             }
         }
     }
@@ -96,11 +108,23 @@ public class NotesMovement : MonoBehaviour
         // Se a música ainda não está a tocar
         if (!starPlaying)
         {
-            // startPlaying fica true
-            starPlaying = true;
+            if (!isPaused)
+            {
+                // startPlaying fica true
+                starPlaying = true;
 
-            // Música começa
-            music.Play();
+                if (firstPlay)
+                {
+                    music.Play();
+                    firstPlay = false;
+                }
+                else
+                {
+                    music.UnPause();
+                    isActive = false;
+                    isDone = false;
+                }
+            }
         }
         else
         {
@@ -117,12 +141,44 @@ public class NotesMovement : MonoBehaviour
     private IEnumerator FinalPainel()
     {
         yield return new WaitForSeconds(4);
+        GameManager.instance.DesableOphelia();
         finalPainel.SetActive(true);
         pointsText.text = "" + GameManager.instance.currentScore;
         comboText.text = "" + GameManager.instance.maxCombo;
     }
 
-    public void GoBack()
+    public void Pause()
+    {
+        isPaused = true;
+
+        if (!isActive)
+        {
+            // Se for esquerda
+            if (isLeft)
+            {
+                transform.position -= new Vector3(0f, 0f, 0f);
+                music.Pause();
+                isActive = true;
+                isDone = true;
+                starPlaying = false;
+            }
+            // Se for direita
+            else
+            {
+                transform.position -= new Vector3(0f, 0f, 0f);
+                music.Pause();
+                isActive = true;
+                isDone = true;
+                starPlaying = false;
+            }
+        }
+        else
+        {
+            isPaused = false;
+        }
+    }
+
+    public void BackToMenu()
     {
         SceneManager.LoadScene("Menu");
     }

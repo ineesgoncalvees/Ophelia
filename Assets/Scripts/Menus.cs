@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class Menus : MonoBehaviour
 {
-
     // Variáveis dos menus
     [SerializeField]
     private GameObject start;
@@ -72,7 +71,6 @@ public class Menus : MonoBehaviour
         coverTwo = GameObject.Find("SongTwoCover");
         coverThree = GameObject.Find("SongThreeCover");
         coverFour = GameObject.Find("SongFourCover");
-
     }
 
     /// <summary>

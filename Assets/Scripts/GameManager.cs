@@ -118,8 +118,7 @@ public class GameManager : MonoBehaviour
         if(!miss)
         {
             yield return new WaitForSeconds(1);
-            ophelia.SetActive(false);
-            meio.SetActive(false);
+            DesableOphelia();
             fullCombo.GetComponent<TextMeshProUGUI>().enabled = true;
             yield return new WaitForSeconds(2);
             fullCombo.GetComponent<TextMeshProUGUI>().enabled = false;
@@ -132,6 +131,12 @@ public class GameManager : MonoBehaviour
     private void AllPerfect()
     {
         // A ser implementado
+    }
+
+    public void DesableOphelia()
+    {
+        ophelia.SetActive(false);
+        meio.SetActive(false);
     }
 }
 
