@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int maxCombo;
 
+    [SerializeField]
+    private bool isMultiplayer;
     // Variáveis para mostrar os pontos e combo ao jogador
     [SerializeField]
     private TextMeshProUGUI pointsText;
@@ -82,7 +84,7 @@ public class GameManager : MonoBehaviour
         ps.Clear();
         ps.Play();
 
-        print(type);
+        //print(type);
     }
 
     /// <summary>
@@ -91,13 +93,17 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void NoteHit(int iButton, HitType type)
     {
-        pointsText.text = "" + currentScore;
         currentCombo++;
         comboText.text = "" + currentCombo;
 
         maxCombo = Mathf.Max(currentCombo);
-
+        
         ActivatePS(iButton, type);
+    }
+
+    public void UpdateScore()
+    {
+        pointsText.text = "" + currentScore;
     }
 
     /// <summary>

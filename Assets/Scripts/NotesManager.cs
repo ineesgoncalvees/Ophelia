@@ -20,6 +20,11 @@ public class NotesManager : MonoBehaviour
     private Button button;
     private GameObject currentNote;
 
+    private bool firstHoldNoteHit;
+    private bool secondHoldNoteHit;
+    private bool isPressed;
+    private float holdScore;
+
     [HideInInspector]
     public int currentButton;
 
@@ -69,20 +74,19 @@ public class NotesManager : MonoBehaviour
             // do lado pretendido
             if (other.GetComponent<NoteBeahviour>().isRight != isRight) return;
 
+            if (other.GetComponent<NoteBeahviour>().isHold == true)
+            {
+                GameManager.instance.NoteMiss();
+                currentNote = null;
+                RemoveClickListener();
+            }
             // Se for uma nota que não o hold
-            if ((other.tag == "Notes"))
+            else if ((other.tag == "Notes"))
             {
                 // Devolve que o jogador falhou
                 currentNote = null;
                 GameManager.instance.NoteMiss();
                 RemoveClickListener();
-            }
-            else if(other.GetComponent<NoteBeahviour>().isHold == true)
-            {
-                currentNote = null;
-                GameManager.instance.NoteMiss();
-                RemoveClickListener();
-                currentNote.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
     }
@@ -111,61 +115,114 @@ public class NotesManager : MonoBehaviour
     /// <param name="note"></param>
     private void CheckHit(GameObject note)
     {
-        // Vai buscar valor da variável isLeft da classe do movimento das notas
-        bool left = note.GetComponentInParent<NotesMovement>().isLeft;
-
-        //print(notePosition);
-        // Desativa a nota quando acerta
-        note.SetActive(false);
-
-        // Se for esquerda
-        if (left)
+        if (currentNote != null)
         {
-            float distance = Vector3.Distance(note.transform.position, transform.position);
-
-            if (distance < minDistance)
+            if (currentNote.GetComponent<NoteBeahviour>().isHold == false)
             {
-                float score = Mathf.Lerp(150f, 0f, distance / minDistance);
+                note.SetActive(false);
+
+                float distance = Vector3.Distance(note.transform.position, transform.position);
+                float score = 0;
+
+                if (distance < minDistance)
+                {
+                    score = NoteHit(distance);
+                }
+
                 GameManager.instance.currentScore += (int)score;
+                GameManager.instance.UpdateScore();
+            }
+            else if(currentNote.GetComponent<NoteBeahviour>().isHold == true)
+            {
+                print("got it 1");
+                float distance = Vector3.Distance(note.transform.position, transform.position);
+                float score = 0;
+                print("nota "+currentNote);
+                print("distanciamin "+minDistance);
+                print("distancia "+distance);
 
-                print(score);
+                minDistance = 600;
 
-                if (score <= 150 && score > 120)
+                if (distance < minDistance)
                 {
-                    GameManager.instance.NoteHit(iButton, HitType.Perfect);
+                    score = NoteHit(distance);
                 }
-                else if (score <= 120 && score > 50)
+
+                holdScore += score;
+
+                if (!firstHoldNoteHit)
                 {
-                    GameManager.instance.NoteHit(iButton, HitType.Great);
+                    print("got it");
+                    firstHoldNoteHit = true;
+                    currentNote = null;
                 }
-                else if (score <= 50 && score > 0)
+                else
                 {
-                    GameManager.instance.NoteHit(iButton, HitType.Good);
+                    if (score == 0)
+                    {
+                        holdScore = 0;
+                    }
+
+                    ResetHoldScore();
+                    //GameManager.instance.currentScore += (int)score;
+                    //GameManager.instance.UpdateScore();
                 }
+
+                GameManager.instance.currentScore += (int)score;
+                GameManager.instance.UpdateScore();
             }
         }
-        // Se for direita
-        else
+    }
+
+    private float NoteHit(float distance)
+    {
+        float score = Mathf.Lerp(150f, 0f, distance / minDistance);
+
+        print("score " + score);
+
+        if (score <= 150 && score > 120)
         {
-            float distance = Vector3.Distance(note.transform.position, transform.position);
+            GameManager.instance.NoteHit(iButton, HitType.Perfect);
+        }
+        else if (score <= 120 && score > 50)
+        {
+            GameManager.instance.NoteHit(iButton, HitType.Great);
+        }
+        else if (score <= 50 && score > 0)
+        {
+            GameManager.instance.NoteHit(iButton, HitType.Good);
+        }
 
-            if (distance < minDistance)
+        return score;
+    }
+
+    public void StartHold()
+    {
+        if (currentNote != null)
+        {
+            if (currentNote.GetComponent<NoteBeahviour>().isHold == true)
             {
-                float score = Mathf.Lerp(150f, 100f, distance / minDistance);
-                GameManager.instance.currentScore += (int)score;
+                isPressed = true;
+                CheckHit(currentNote);
+            }
+        }
+    }
 
-                if (score <= 150 && score > 100)
-                {
-                    GameManager.instance.NoteHit(iButton, HitType.Perfect);
-                }
-                else if (score <= 100 && score > 50)
-                {
-                    GameManager.instance.NoteHit(iButton, HitType.Great);
-                }
-                else if (score <= 50 && score > 0)
-                {
-                    GameManager.instance.NoteHit(iButton, HitType.Good);
-                }
+    private void ResetHoldScore()
+    {
+        holdScore = 0;
+        firstHoldNoteHit = false;
+        secondHoldNoteHit = false;
+    }
+
+    private void Update()
+    {
+        if (isPressed)
+        {
+            if (!Input.GetMouseButton(0))
+            {
+                isPressed = false;
+                CheckHit(currentNote);
             }
         }
     }
