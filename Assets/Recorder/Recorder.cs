@@ -75,9 +75,15 @@ public class Recorder : MonoBehaviour
             {
                 noteImage[1].color = Color.Lerp(noteImage[1].color, Color.white, 0.1f);
             }
-#if UNITY_EDITOR
-            UnityEditor.EditorUtility.SetDirty(this);
-#endif
         }
     }
+
+#if UNITY_EDITOR
+    private void OnDestroy()
+    {
+        UnityEditor.EditorUtility.SetDirty(sequence);
+        UnityEditor.AssetDatabase.SaveAssets();
+        UnityEditor.AssetDatabase.Refresh();
+    }
+#endif
 }

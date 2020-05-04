@@ -115,7 +115,7 @@ public class NotesMovement : MonoBehaviour
 
                 if (firstPlay)
                 {
-                    music.Play();
+                    //music.Play();
                     firstPlay = false;
                 }
                 else

@@ -603,8 +603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb46e146b93044b4e8fc0b5457053b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 5ff2b6a7d4db33748a53491047216830, type: 3}
-  sequence: {fileID: 11400000, guid: bc77c19fccc0e9e4ab8b57e2cb73b1a1, type: 2}
+  music: {fileID: 8300000, guid: fb94ecc87d7f6f04ca6a32b299d06240, type: 3}
+  sequence: {fileID: 11400000, guid: a26b2bd7cfc01c240afd64f66195d63d, type: 2}
   noteImage:
   - {fileID: 1111966365}
   - {fileID: 1366795634}
@@ -1589,8 +1589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0522451c1c5cc4ab1052bd57c882d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatMap: {fileID: 11400000, guid: bc77c19fccc0e9e4ab8b57e2cb73b1a1, type: 2}
-  notePrevTime: 0.25
+  beatMap: {fileID: 11400000, guid: a26b2bd7cfc01c240afd64f66195d63d, type: 2}
+  notePrevTime: 2
   noteStart:
   - {fileID: 1713874966}
   - {fileID: 855208047}
