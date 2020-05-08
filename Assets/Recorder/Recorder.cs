@@ -60,6 +60,7 @@ public class Recorder : MonoBehaviour
             {
                 noteImage[0].color = Color.Lerp(noteImage[0].color, Color.white, 0.1f);
             }
+
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 BeatMap.Beat b = new BeatMap.Beat();
@@ -74,6 +75,102 @@ public class Recorder : MonoBehaviour
             else
             {
                 noteImage[1].color = Color.Lerp(noteImage[1].color, Color.white, 0.1f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                BeatMap.Beat b = new BeatMap.Beat();
+                b.time = Time.time - startTime;
+                b.isHold = false;
+                b.isRight = false;
+                b.slot = 2;
+                sequence.beats.Add(b);
+
+                noteImage[2].color = Color.yellow;
+            }
+            else
+            {
+                noteImage[2].color = Color.Lerp(noteImage[2].color, Color.white, 0.1f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                BeatMap.Beat b = new BeatMap.Beat();
+                b.time = Time.time - startTime;
+                b.isHold = false;
+                b.isRight = false;
+                b.slot = 3;
+                sequence.beats.Add(b);
+
+                noteImage[3].color = Color.yellow;
+            }
+            else
+            {
+                noteImage[3].color = Color.Lerp(noteImage[3].color, Color.white, 0.1f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                BeatMap.Beat b = new BeatMap.Beat();
+                b.time = Time.time - startTime;
+                b.isHold = false;
+                b.isRight = true;
+                b.slot = 0;
+                sequence.beats.Add(b);
+
+                noteImage[4].color = Color.yellow;
+            }
+            else
+            {
+                noteImage[4].color = Color.Lerp(noteImage[4].color, Color.white, 0.1f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                BeatMap.Beat b = new BeatMap.Beat();
+                b.time = Time.time - startTime;
+                b.isHold = false;
+                b.isRight = true;
+                b.slot = 1;
+                sequence.beats.Add(b);
+
+                noteImage[5].color = Color.yellow;
+            }
+            else
+            {
+                noteImage[5].color = Color.Lerp(noteImage[5].color, Color.white, 0.1f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                BeatMap.Beat b = new BeatMap.Beat();
+                b.time = Time.time - startTime;
+                b.isHold = false;
+                b.isRight = true;
+                b.slot = 2;
+                sequence.beats.Add(b);
+
+                noteImage[6].color = Color.yellow;
+            }
+            else
+            {
+                noteImage[6].color = Color.Lerp(noteImage[6].color, Color.white, 0.1f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                BeatMap.Beat b = new BeatMap.Beat();
+                b.time = Time.time - startTime;
+                b.isHold = false;
+                b.isRight = true;
+                b.slot = 3;
+                sequence.beats.Add(b);
+
+                noteImage[7].color = Color.yellow;
+            }
+            else
+            {
+                noteImage[7].color = Color.Lerp(noteImage[7].color, Color.white, 0.1f);
             }
         }
     }

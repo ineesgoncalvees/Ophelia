@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 /// <summary>
@@ -34,18 +35,16 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI pointsText;
     [SerializeField]
     private TextMeshProUGUI comboText;
+    [SerializeField]
+    private GameObject finalPainel;
     // Variável que vai guardar fullcombo
     [SerializeField]
     private TextMeshProUGUI fullCombo;
     [SerializeField]
     private PSHolder[] particleSystems;
 
-    [SerializeField]
-    private GameObject ophelia;
-    [SerializeField]
-    private GameObject meio;
-
     private bool miss;
+    private bool isPaused;
 
     // Intancia da classe GameManager
     public static GameManager instance;
@@ -59,6 +58,8 @@ public class GameManager : MonoBehaviour
         currentCombo = 0;
         currentScore = 0;
         miss = false;
+        isPaused = false;
+        finalPainel.SetActive(false);
         fullCombo.GetComponent<TextMeshProUGUI>().enabled = false;
     }
 
@@ -66,8 +67,8 @@ public class GameManager : MonoBehaviour
     {
 #if UNITY_EDITOR
         int nCount = 0;
-        if (Input.GetMouseButton(0)) 
-           nCount = 1;
+        if (Input.GetMouseButton(0))
+            nCount = 1;
         Vector2 pt = Input.mousePosition;
 #else
         int nCount = Input.touchCount;
@@ -97,7 +98,7 @@ public class GameManager : MonoBehaviour
         comboText.text = "" + currentCombo;
 
         maxCombo = Mathf.Max(currentCombo);
-        
+
         ActivatePS(iButton, type);
     }
 
@@ -121,10 +122,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public IEnumerator FullCombo()
     {
-        if(!miss)
+        if (!miss)
         {
             yield return new WaitForSeconds(1);
-            DesableOphelia();
             fullCombo.GetComponent<TextMeshProUGUI>().enabled = true;
             yield return new WaitForSeconds(2);
             fullCombo.GetComponent<TextMeshProUGUI>().enabled = false;
@@ -139,10 +139,31 @@ public class GameManager : MonoBehaviour
         // A ser implementado
     }
 
-    public void DesableOphelia()
+    private IEnumerator FinalPainel()
     {
-        ophelia.SetActive(false);
-        meio.SetActive(false);
+        yield return new WaitForSeconds(4);
+        finalPainel.SetActive(true);
+        pointsText.text = "" + GameManager.instance.currentScore;
+        comboText.text = "" + GameManager.instance.maxCombo;
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Pause()
+    {
+        if (!isPaused)
+        {
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+        }
     }
 }
 

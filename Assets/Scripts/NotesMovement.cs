@@ -15,8 +15,8 @@ public class NotesMovement : MonoBehaviour
     // Variável para a música
     [SerializeField]
     private AudioSource music;
-    [SerializeField]
-    private GameObject finalPainel;
+    //[SerializeField]
+    //private GameObject finalPainel;
 
     [SerializeField]
     private TextMeshProUGUI pointsText;
@@ -44,7 +44,7 @@ public class NotesMovement : MonoBehaviour
         isPaused = false;
         isActive = false;
         firstPlay = true;
-        finalPainel.SetActive(false);
+        //finalPainel.SetActive(false);
     }
 
     /// <summary>
@@ -131,21 +131,20 @@ public class NotesMovement : MonoBehaviour
             if (!music.isPlaying && isDone == false)
             {
                 StartCoroutine(GameManager.instance.FullCombo());
-                StartCoroutine(FinalPainel());
+                //StartCoroutine(FinalPainel());
                 StopCoroutine(GameManager.instance.FullCombo());
                 isDone = true;
             }
         }
     }
 
-    private IEnumerator FinalPainel()
-    {
-        yield return new WaitForSeconds(4);
-        GameManager.instance.DesableOphelia();
-        finalPainel.SetActive(true);
-        pointsText.text = "" + GameManager.instance.currentScore;
-        comboText.text = "" + GameManager.instance.maxCombo;
-    }
+    //private IEnumerator FinalPainel()
+    //{
+    //    yield return new WaitForSeconds(4);
+    //    finalPainel.SetActive(true);
+    //    pointsText.text = "" + GameManager.instance.currentScore;
+    //    comboText.text = "" + GameManager.instance.maxCombo;
+    //}
 
     public void Pause()
     {
@@ -176,10 +175,5 @@ public class NotesMovement : MonoBehaviour
         {
             isPaused = false;
         }
-    }
-
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene("Menu");
     }
 }

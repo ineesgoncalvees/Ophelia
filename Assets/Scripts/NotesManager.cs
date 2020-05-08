@@ -39,6 +39,18 @@ public class NotesManager : MonoBehaviour
         button = GetComponent<Button>();
     }
 
+    private void Update()
+    {
+        if (isPressed)
+        {
+            if (!Input.GetMouseButton(0))
+            {
+                isPressed = false;
+                CheckHit(currentNote);
+            }
+        }
+    }
+
     /// <summary>
     /// Método chamado quando um collider 2D passa pelos botões que são trigger
     /// </summary>
@@ -48,12 +60,6 @@ public class NotesManager : MonoBehaviour
         // Se o collider tiver a tag de Notes
         if (other.tag == "Notes")
         {
-            // Desativa botão quando a nota passa por baixo mas não é a nota
-            // do lado pretendido
-            if (other.GetComponent<NoteBeahviour>().isRight != isRight) return;
-
-            // O botão fica ativo
-            button.interactable = true;
             // Vai buscar a referência da nota que o ativou
             currentNote = other.gameObject;
             // Chama evento
@@ -70,10 +76,6 @@ public class NotesManager : MonoBehaviour
         // Se houver uma currentNote e se estiver ativa
         if (currentNote != null && currentNote.activeInHierarchy)
         {
-            // Desativa botão quando a nota passa por baixo mas não é a nota
-            // do lado pretendido
-            if (other.GetComponent<NoteBeahviour>().isRight != isRight) return;
-
             if (other.GetComponent<NoteBeahviour>().isHold == true)
             {
                 GameManager.instance.NoteMiss();
@@ -113,7 +115,7 @@ public class NotesManager : MonoBehaviour
     /// Método que define a acuracy do jogador
     /// </summary>
     /// <param name="note"></param>
-    private void CheckHit(GameObject note)
+    public void CheckHit(GameObject note)
     {
         if (currentNote != null)
         {
@@ -213,17 +215,5 @@ public class NotesManager : MonoBehaviour
         holdScore = 0;
         firstHoldNoteHit = false;
         secondHoldNoteHit = false;
-    }
-
-    private void Update()
-    {
-        if (isPressed)
-        {
-            if (!Input.GetMouseButton(0))
-            {
-                isPressed = false;
-                CheckHit(currentNote);
-            }
-        }
     }
 }
