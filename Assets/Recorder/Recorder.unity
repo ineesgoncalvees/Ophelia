@@ -507,7 +507,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.12
+  m_Volume: 0.569
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -603,8 +603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb46e146b93044b4e8fc0b5457053b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: fb94ecc87d7f6f04ca6a32b299d06240, type: 3}
-  sequence: {fileID: 11400000, guid: a26b2bd7cfc01c240afd64f66195d63d, type: 2}
+  music: {fileID: 8300000, guid: b8db852e776091e47b679d6406dd9864, type: 3}
+  sequence: {fileID: 11400000, guid: 3fa34f54638a02f45a32d02c0533f798, type: 2}
   noteImage:
   - {fileID: 1111966365}
   - {fileID: 1366795634}
@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0522451c1c5cc4ab1052bd57c882d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatMap: {fileID: 11400000, guid: a26b2bd7cfc01c240afd64f66195d63d, type: 2}
+  beatMap: {fileID: 11400000, guid: 3fa34f54638a02f45a32d02c0533f798, type: 2}
   notePrevTime: 2
   noteStart:
   - {fileID: 1713874966}

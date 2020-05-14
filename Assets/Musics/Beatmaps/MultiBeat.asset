@@ -1,0 +1,1104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdfb8c3842053814388e881cfabeca8c, type: 3}
+  m_Name: MultiBeat
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: b8db852e776091e47b679d6406dd9864, type: 3}
+  beats:
+  - time: 4.1852937
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 4.1852937
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 4.6917386
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 4.6917386
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 5.315194
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 5.315194
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 6.171472
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 6.1888595
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 6.923101
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 6.923101
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 7.704149
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 7.704149
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 8.429441
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 8.429441
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 9.145004
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 9.145004
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 9.8853855
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 9.8853855
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 10.660616
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 10.660616
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 11.022614
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 11.022614
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 11.532179
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 11.532179
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 12.244574
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 12.244574
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 12.956575
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 12.956575
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 13.706081
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 13.706081
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 14.06848
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 14.085142
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 14.4707985
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 14.4707985
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 15.228636
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 15.228636
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 15.938511
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 15.938511
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 16.738281
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 16.738281
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 17.477654
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 17.477654
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 18.19537
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 18.19537
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 18.955492
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 18.972158
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 19.669033
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 19.6857
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 20.353535
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 20.353535
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 21.115776
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 21.115776
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 21.87162
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 21.87162
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 22.685137
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 22.685137
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 23.423288
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 23.423288
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 24.13639
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 24.13639
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 24.7998
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 24.7998
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 25.09985
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 25.09985
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 25.456985
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 25.473904
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 25.828943
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 25.845612
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 26.199947
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 26.199947
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 27.8421
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 27.8421
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 28.533436
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 28.533436
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 29.240929
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 29.266891
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 30.01263
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 30.029297
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 30.769085
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 30.81113
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 31.577457
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 31.594124
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 31.965542
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 31.965542
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 32.40558
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 32.422256
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 33.10754
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 33.141327
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 33.858704
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 33.858704
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 34.565674
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 34.582912
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 34.96614
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 34.96614
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 35.45936
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 35.45936
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 36.17007
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 36.17007
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 36.87259
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 36.889412
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 37.626904
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 37.626904
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 38.040874
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 38.074497
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 38.91485
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 38.91485
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 39.687492
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 39.687492
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 41.41444
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 41.41444
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 42.015976
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 42.015976
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 42.857292
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 42.874405
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 43.548702
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 43.565372
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 43.977013
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 43.977013
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 44.370872
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 44.370872
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 44.74906
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 44.74906
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 45.51273
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 45.51273
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 46.280872
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 46.280872
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 47.315403
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 47.315403
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 48.070755
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 48.070755
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 48.752304
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 48.798466
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 49.192356
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 49.209274
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 49.62459
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 49.62459
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 50.010483
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 50.027367
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 50.320835
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 50.354168
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 51.69311
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 51.69311
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 52.531094
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 52.531094
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 53.268208
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 53.268208
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 53.952194
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 53.952194
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 54.697952
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 54.697952
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 55.511143
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 55.54896
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 56.56184
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 56.56184
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 57.148563
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 57.148563
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 57.890152
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 57.90708
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 58.27469
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 58.291355
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 58.657154
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 58.657154
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 59.375916
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 59.375916
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 60.05438
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 60.05438
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 60.880356
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 60.880356
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 61.38292
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 61.38292
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 61.76584
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 61.76584
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 62.132103
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 62.132103
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 62.545563
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 62.545563
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 63.268517
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 63.28528
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 64.03451
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 64.03451
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 64.75991
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 64.75991
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 65.557526
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 65.557526
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 66.25271
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 66.25271
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 67.09605
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 67.09605
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 67.87937
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 67.89914
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 68.65343
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 68.67349
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 69.483734
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 69.483734
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 70.261505
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 70.261505
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 71.05851
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 71.05851
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 71.81834
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 71.81834
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 72.67746
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 72.67746
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 73.41719
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 73.41719
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 74.177216
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 74.177216
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 74.939804
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 74.939804
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 75.71859
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 75.71859
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 76.573
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 76.573
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 77.36042
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 77.37732
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 78.11096
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 78.11096
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 78.87637
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 78.87637
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 79.65796
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 79.65796
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 80.37381
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 80.37381
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 81.12547
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 81.12547
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 81.994995
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 81.994995
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 82.799355
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 82.81643
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 83.18636
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 83.18636
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 83.5691
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 83.58644
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 84.332306
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 84.332306
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 85.0928
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 85.0928
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 85.84141
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 85.84141
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 86.60994
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 86.60994
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 86.95407
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 86.95407
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 87.409355
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 87.409355
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 88.123
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 88.123
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 88.85907
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 88.85907
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 89.66879
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 89.66879
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 90.05819
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 90.05819
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 90.48192
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 90.48192
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 91.23352
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 91.23352
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 91.951805
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 91.951805
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 92.756454
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 92.756454
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 93.14616
+    isHold: 0
+    slot: 3
+    isRight: 0
+  - time: 93.14616
+    isHold: 0
+    slot: 0
+    isRight: 1
+  - time: 93.54244
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 93.54244
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 94.291016
+    isHold: 0
+    slot: 1
+    isRight: 1
+  - time: 94.30824
+    isHold: 0
+    slot: 2
+    isRight: 0
+  - time: 94.988976
+    isHold: 0
+    slot: 2
+    isRight: 1
+  - time: 95.005646
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 95.78434
+    isHold: 0
+    slot: 3
+    isRight: 1
+  - time: 95.80101
+    isHold: 0
+    slot: 0
+    isRight: 0
+  - time: 96.08146
+    isHold: 0
+    slot: 1
+    isRight: 0
+  - time: 96.08146
+    isHold: 0
+    slot: 2
+    isRight: 1
