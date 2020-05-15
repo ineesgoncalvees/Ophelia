@@ -81,8 +81,7 @@ public class GameManager : MonoBehaviour
     void ActivatePS(int button, HitType type)
     {
         ParticleSystem ps = particleSystems[button].particleSystems[(int)type];
-
-        
+       
         ps.Clear();
         ps.Play();
         print(ps.isEmitting);
@@ -99,7 +98,7 @@ public class GameManager : MonoBehaviour
         currentCombo++;
         comboText.text = "" + currentCombo;
 
-        maxCombo = Mathf.Max(currentCombo);
+        maxCombo = Mathf.Max(currentCombo, maxCombo);
 
         ActivatePS(iButton, type);
     }

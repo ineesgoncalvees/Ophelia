@@ -216,4 +216,18 @@ public class NotesManager : MonoBehaviour
         firstHoldNoteHit = false;
         secondHoldNoteHit = false;
     }
+
+    private void OnDrawGizmos()
+    {
+        if (isRight)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, transform.position + -Vector3.right * minDistance);
+        }
+        else
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position, transform.position + Vector3.right * minDistance);
+        }
+    }
 }

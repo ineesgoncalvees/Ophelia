@@ -15,6 +15,7 @@ public class BeatMap : ScriptableObject
     };
 
     public AudioClip    music;
+    public float        musicOffset;
     public List<Beat>   beats;
 
     public void Clear()

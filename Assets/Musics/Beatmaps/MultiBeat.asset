@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MultiBeat
   m_EditorClassIdentifier: 
   music: {fileID: 8300000, guid: b8db852e776091e47b679d6406dd9864, type: 3}
+  musicOffset: 1.1
   beats:
   - time: 4.1852937
     isHold: 0

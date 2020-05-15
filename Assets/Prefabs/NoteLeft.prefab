@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7746973544619655184}
   - component: {fileID: 8107353513879580195}
   - component: {fileID: 353153737274449925}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Note
   m_TagString: Notes
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ RectTransform:
   m_GameObject: {fileID: 733466856397410677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9819616, y: 1.9819616, z: 1.9819616}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 30}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2642847271725528782
 CanvasRenderer:
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -104,7 +104,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 12.94
+  m_Radius: 40
 --- !u!114 &353153737274449925
 MonoBehaviour:
   m_ObjectHideFlags: 0
