@@ -82,8 +82,10 @@ public class GameManager : MonoBehaviour
     {
         ParticleSystem ps = particleSystems[button].particleSystems[(int)type];
 
+        
         ps.Clear();
         ps.Play();
+        print(ps.isEmitting);
 
         //print(type);
     }
