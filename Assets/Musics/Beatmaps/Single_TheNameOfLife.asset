@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Single_TheNameOfLife
   m_EditorClassIdentifier: 
   music: {fileID: 8300000, guid: 7e40e4fb1affaf94a91d1128a8e55152, type: 3}
-  musicOffset: 1.2
+  musicOffset: 2
   beats:
   - time: 4.587529
     isHold: 0

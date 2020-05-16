@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Beat
   m_EditorClassIdentifier: 
   music: {fileID: 8300000, guid: b8db852e776091e47b679d6406dd9864, type: 3}
+  musicOffset: 2.13
   beats:
   - time: 4.092364
     isHold: 0
@@ -678,7 +679,7 @@ MonoBehaviour:
     isHold: 0
     slot: 2
     isRight: 0
-  - time: 97
+  - time: 96
     isHold: 0
     slot: 1
     isRight: 0

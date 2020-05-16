@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0522451c1c5cc4ab1052bd57c882d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatMap: {fileID: 11400000, guid: a26b2bd7cfc01c240afd64f66195d63d, type: 2}
+  beatMap: {fileID: 11400000, guid: a8a8e831b35420548ac180566127a469, type: 2}
   notePrevTime: 2
   noteStart:
   - {fileID: 1713874966}
@@ -1606,7 +1606,9 @@ MonoBehaviour:
   - {fileID: 812292646}
   - {fileID: 889636889}
   - {fileID: 1126787087}
-  notePrefab: {fileID: 7746973544619655184, guid: cedea1b6b89138440b4514e8f23514d4,
+  noteRightPrefab: {fileID: 7746973544619655184, guid: 2c2006ab2728919449012b8c8a33dc3c,
+    type: 3}
+  noteLeftPrefab: {fileID: 7746973544619655184, guid: cedea1b6b89138440b4514e8f23514d4,
     type: 3}
   noteCanvas: {fileID: 1065843895}
   audioSource: {fileID: 0}
