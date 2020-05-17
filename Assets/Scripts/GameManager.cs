@@ -30,13 +30,21 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private bool isMultiplayer;
+    [SerializeField]
+    private AudioSource musica;
     // Variáveis para mostrar os pontos e combo ao jogador
     [SerializeField]
     private TextMeshProUGUI pointsText;
     [SerializeField]
     private TextMeshProUGUI comboText;
     [SerializeField]
+    private TextMeshProUGUI finalPointsText;
+    [SerializeField]
+    private TextMeshProUGUI maxComboText;
+    [SerializeField]
     private GameObject finalPainel;
+    [SerializeField]
+    private GameObject menuPause;
     // Variável que vai guardar fullcombo
     [SerializeField]
     private TextMeshProUGUI fullCombo;
@@ -45,6 +53,12 @@ public class GameManager : MonoBehaviour
 
     private bool miss;
     private bool isPaused;
+    private bool isActive;
+    private bool musicStarted;
+    private bool ended;
+    private bool isDone;
+
+    private Scene activeScene;
 
     // Intancia da classe GameManager
     public static GameManager instance;
@@ -59,8 +73,14 @@ public class GameManager : MonoBehaviour
         currentScore = 0;
         miss = false;
         isPaused = false;
+        isActive = true;
+        ended = false;
+        isDone = false;
+        musicStarted = false;
         finalPainel.SetActive(false);
+        menuPause.SetActive(false);
         fullCombo.GetComponent<TextMeshProUGUI>().enabled = false;
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -76,17 +96,17 @@ public class GameManager : MonoBehaviour
         if(nCount > 0)
             pt = Input.touches[0].position;
 #endif
+
+        MusicPlay();
+        MusicEnd();
     }
 
     void ActivatePS(int button, HitType type)
     {
         ParticleSystem ps = particleSystems[button].particleSystems[(int)type];
-       
+
         ps.Clear();
         ps.Play();
-        print(ps.isEmitting);
-
-        //print(type);
     }
 
     /// <summary>
@@ -144,8 +164,38 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         finalPainel.SetActive(true);
-        pointsText.text = "" + GameManager.instance.currentScore;
-        comboText.text = "" + GameManager.instance.maxCombo;
+        finalPointsText.text = "" + currentScore;
+        maxComboText.text = "" + maxCombo;
+    }
+
+    private void MusicEnd()
+    {
+        if (!musica.isPlaying && ended)
+        {
+            StartCoroutine(FullCombo());
+            StartCoroutine(FinalPainel());
+            StopCoroutine(FullCombo());
+            ended = false;
+            isDone = true;
+        }
+        else if (!musica.isPlaying && musicStarted && !isPaused && !isDone)
+        {
+            ended = true;
+        }
+    }
+
+    private void MusicPlay()
+    {
+        if (musica.isPlaying)
+        {
+            musicStarted = true;
+        }
+    }
+
+    public void Restart()
+    {
+        activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(activeScene.buildIndex);
     }
 
     public void BackToMenu()
@@ -155,15 +205,21 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        if (!isPaused)
+        if (!isPaused && isActive)
         {
             Time.timeScale = 0;
             isPaused = true;
+            isActive = false;
+            musica.Pause();
+            menuPause.SetActive(true);
         }
         else
         {
             Time.timeScale = 1;
             isPaused = false;
+            isActive = true;
+            musica.UnPause();
+            menuPause.SetActive(false);
         }
     }
 }
