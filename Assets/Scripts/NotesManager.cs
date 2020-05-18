@@ -76,18 +76,19 @@ public class NotesManager : MonoBehaviour
         // Se houver uma currentNote e se estiver ativa
         if (currentNote != null && currentNote.activeInHierarchy)
         {
-            if (other.GetComponent<NoteBeahviour>().isHold == true)
+            //if (other.GetComponent<NoteBeahviour>().isHold == true)
+            //{
+            //    GameManager.instance.NoteMiss(iButton, HitType.Miss);
+            //    currentNote = null;
+            //    RemoveClickListener();
+            //}
+            //// Se for uma nota que não o hold
+            //else 
+            if ((other.tag == "Notes"))
             {
-                GameManager.instance.NoteMiss();
-                currentNote = null;
-                RemoveClickListener();
-            }
-            // Se for uma nota que não o hold
-            else if ((other.tag == "Notes"))
-            {
+                GameManager.instance.NoteMiss(iButton, HitType.Miss);
                 // Devolve que o jogador falhou
                 currentNote = null;
-                GameManager.instance.NoteMiss();
                 RemoveClickListener();
             }
         }
@@ -180,7 +181,7 @@ public class NotesManager : MonoBehaviour
     {
         float score = Mathf.Lerp(150f, 0f, distance / minDistance);
 
-        print("score " + score);
+        //print("score " + score);
 
         if (score <= 150 && score > 120)
         {
@@ -223,11 +224,13 @@ public class NotesManager : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, transform.position + -Vector3.right * minDistance);
+            Gizmos.DrawLine(transform.position, transform.position + Vector3.right * minDistance);
         }
         else
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawLine(transform.position, transform.position + Vector3.right * minDistance);
+            Gizmos.DrawLine(transform.position, transform.position + -Vector3.right * minDistance);
         }
     }
 }

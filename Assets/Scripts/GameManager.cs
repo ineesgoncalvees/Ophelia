@@ -131,11 +131,13 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Método chamado quando jogador falha a nota
     /// </summary>
-    public void NoteMiss()
+    public void NoteMiss(int iButton, HitType type)
     {
         currentCombo = 0;
         comboText.text = "" + currentCombo;
         miss = true;
+
+        ActivatePS(iButton, type);
     }
 
     /// <summary>

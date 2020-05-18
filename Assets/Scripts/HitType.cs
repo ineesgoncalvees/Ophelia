@@ -2,6 +2,6 @@
 {
     Perfect,
     Great,
-    Good
-
+    Good,
+    Miss
 }

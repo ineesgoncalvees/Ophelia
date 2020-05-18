@@ -51,36 +51,12 @@ public class Menus : MonoBehaviour
     private AudioSource songFourPreview;
 
     /// <summary>
-    /// Método Awake() que corre no princípio do programa e encontra os game
-    /// objects
-    /// </summary>
-    private void Awake()
-    {
-        start = GameObject.Find("Start");
-        main = GameObject.Find("Main");
-        story = GameObject.Find("Story");
-        songSelect = GameObject.Find("Singleplayer");
-        multiplayer = GameObject.Find("Multiplayer");
-
-        song1 = GameObject.Find("Song1");
-        song2 = GameObject.Find("Song2");
-        song3 = GameObject.Find("Song3");
-        song4 = GameObject.Find("Song4");
-
-        coverOne = GameObject.Find("SongOneCover");
-        coverTwo = GameObject.Find("SongTwoCover");
-        coverThree = GameObject.Find("SongThreeCover");
-        coverFour = GameObject.Find("SongFourCover");
-    }
-
-    /// <summary>
     /// Método Start() chamado no princípio do programa, mas depois do Awake()
     /// e que inicia as variáveis
     /// </summary>
     private void Start()
     {
-        start.gameObject.SetActive(true);
-        main.gameObject.SetActive(false);
+        main.gameObject.SetActive(true);
         story.gameObject.SetActive(false);
         songSelect.gameObject.SetActive(false);
         multiplayer.gameObject.SetActive(false);
@@ -94,21 +70,6 @@ public class Menus : MonoBehaviour
         coverTwo.gameObject.SetActive(false);
         coverThree.gameObject.SetActive(false);
         coverFour.gameObject.SetActive(false);
-
-        StartCoroutine(StartScreen());
-    }
-
-    /// <summary>
-    /// Método do tipo IEnumerator que mostra um ecrã por 3 segundos no início
-    /// do programa e depois do desativa
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator StartScreen()
-    {
-        yield return new WaitForSeconds(3);
-
-        start.gameObject.SetActive(false);
-        main.gameObject.SetActive(true);
     }
 
     /// <summary>
