@@ -56,14 +56,32 @@ public class GameManager : MonoBehaviour
     private bool ended;
     private bool isDone;
 
+    private int currentComboP1;
+    private int currentComboP2;
+    private int maxComboP1;
+    private int maxComboP2;
+
     private Scene activeScene;
 
-    [SerializeField][Header("Multiplayer Settings")]
+    [Header("Multiplayer Settings")]
+    [SerializeField]
     private bool isMultiplayer;
     [SerializeField]
     private GameObject menuPauseP1;
     [SerializeField]
     private GameObject menuPauseP2;
+    [SerializeField]
+    private TextMeshProUGUI pointsTextP1;
+    [SerializeField]
+    private TextMeshProUGUI pointsTextP2;
+    [SerializeField]
+    private TextMeshProUGUI comboTextP1;
+    [SerializeField]
+    private TextMeshProUGUI comboTextP2;
+
+    public bool IsMultiplayer => isMultiplayer;
+    public int P1Score { get; set; }
+    public int P2Score { get; set; }
 
     // Intancia da classe GameManager
     public static GameManager instance;
@@ -121,22 +139,58 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void NoteHit(int iButton, HitType type)
     {
-        currentCombo++;
-        comboText.text = "" + currentCombo;
-
-        maxCombo = Mathf.Max(currentCombo, maxCombo);
-
-        if (currentCombo % 10 == 0)
+        if (isMultiplayer)
         {
-            ophelia.SetTrigger("happy");
+            if (iButton <= 3)
+            {
+                currentComboP1++;
+
+                comboTextP1.text = "" + currentComboP1;
+                maxComboP1 = Mathf.Max(currentComboP1, maxComboP1);
+
+                if (currentComboP1 % 10 == 0)
+                {
+                    ophelia.SetTrigger("happy");
+                }
+            }
+            else
+            {
+                currentComboP2++;
+
+                comboTextP2.text = "" + currentComboP2;
+                maxComboP2 = Mathf.Max(currentComboP2, maxComboP2);
+
+                if (currentComboP2 % 10 == 0)
+                {
+                    ophelia.SetTrigger("happy");
+                }
+            }
+        }
+        else
+        {
+            currentCombo++;
+            comboText.text = "" + currentCombo;
+
+            maxCombo = Mathf.Max(currentCombo, maxCombo);
+
+            if (currentCombo % 10 == 0)
+            {
+                ophelia.SetTrigger("happy");
+            }
         }
 
         ActivatePS(iButton, type);
     }
 
-    public void UpdateScore()
+    public void UpdateSingleScore()
     {
         pointsText.text = "" + currentScore;
+    }
+
+    public void UpdateMultiScore(bool isRight)
+    {
+        if (isRight) pointsTextP2.text = "" + P2Score;
+        else pointsTextP1.text = "" + P1Score;
     }
 
     /// <summary>
@@ -144,10 +198,30 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void NoteMiss(int iButton, HitType type)
     {
-        currentCombo = 0;
-        comboText.text = "" + currentCombo;
-        miss = true;
-        ophelia.SetTrigger("missed");
+        if (isMultiplayer)
+        {
+            if (iButton <= 3)
+            {
+                currentComboP1 = 0;
+                comboTextP1.text = "" + currentComboP1;
+                miss = true;
+                ophelia.SetTrigger("missed");
+            }
+            else
+            {
+                currentComboP2 = 0;
+                comboTextP2.text = "" + currentComboP2;
+                miss = true;
+                ophelia.SetTrigger("missed");
+            }
+        }
+        else
+        {
+            currentCombo = 0;
+            comboText.text = "" + currentCombo;
+            miss = true;
+            ophelia.SetTrigger("missed");
+        }
 
         ActivatePS(iButton, type);
     }

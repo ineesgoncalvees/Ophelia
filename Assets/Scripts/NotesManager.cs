@@ -120,7 +120,7 @@ public class NotesManager : MonoBehaviour
     {
         if (currentNote != null)
         {
-            if (currentNote.GetComponent<NoteBeahviour>().isHold == false)
+            if (currentNote.GetComponent<NoteBehaviour>().isHold == false)
             {
                 note.SetActive(false);
 
@@ -132,17 +132,29 @@ public class NotesManager : MonoBehaviour
                     score = NoteHit(distance);
                 }
 
-                GameManager.instance.currentScore += (int)score;
-                GameManager.instance.UpdateScore();
+                if (GameManager.instance.IsMultiplayer)
+                {
+                    if (isRight)
+                        GameManager.instance.P2Score += (int)score;
+                    else
+                        GameManager.instance.P1Score += (int)score;
+
+                    GameManager.instance.UpdateMultiScore(isRight);
+                }
+                else
+                {
+                    GameManager.instance.currentScore += (int)score;
+                    GameManager.instance.UpdateSingleScore();
+                }
             }
-            else if(currentNote.GetComponent<NoteBeahviour>().isHold == true)
+            else if (currentNote.GetComponent<NoteBehaviour>().isHold == true)
             {
                 print("got it 1");
                 float distance = Vector3.Distance(note.transform.position, transform.position);
                 float score = 0;
-                print("nota "+currentNote);
-                print("distanciamin "+minDistance);
-                print("distancia "+distance);
+                print("nota " + currentNote);
+                print("distanciamin " + minDistance);
+                print("distancia " + distance);
 
                 minDistance = 600;
 
@@ -172,7 +184,7 @@ public class NotesManager : MonoBehaviour
                 }
 
                 GameManager.instance.currentScore += (int)score;
-                GameManager.instance.UpdateScore();
+                GameManager.instance.UpdateSingleScore();
             }
         }
     }
@@ -203,7 +215,7 @@ public class NotesManager : MonoBehaviour
     {
         if (currentNote != null)
         {
-            if (currentNote.GetComponent<NoteBeahviour>().isHold == true)
+            if (currentNote.GetComponent<NoteBehaviour>().isHold == true)
             {
                 isPressed = true;
                 CheckHit(currentNote);

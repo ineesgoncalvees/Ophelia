@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6266,18 +6266,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.000122, y: -223}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &451711207 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7057712798342016843, guid: e031f0d823763e2489e16a2dba47996a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1907713812}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &461945529 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7057712799661569066, guid: e031f0d823763e2489e16a2dba47996a,
@@ -6534,10 +6522,10 @@ MonoBehaviour:
   currentCombo: 0
   maxCombo: 0
   musica: {fileID: 1723306429}
-  pointsText: {fileID: 846476107}
-  comboText: {fileID: 2023071002}
-  finalPointsText: {fileID: 451711207}
-  maxComboText: {fileID: 1367810747}
+  pointsText: {fileID: 0}
+  comboText: {fileID: 0}
+  finalPointsText: {fileID: 0}
+  maxComboText: {fileID: 0}
   finalPainel: {fileID: 2093068915}
   fullCombo: {fileID: 212425906}
   ophelia: {fileID: 1177742460}
@@ -6582,9 +6570,13 @@ MonoBehaviour:
     - {fileID: 320499049}
     - {fileID: 1409352634}
     - {fileID: 1955592576}
-  isMultiplayer: 0
+  isMultiplayer: 1
   menuPauseP1: {fileID: 439152942}
   menuPauseP2: {fileID: 794681056}
+  pointsTextP1: {fileID: 846476107}
+  pointsTextP2: {fileID: 1209662507}
+  comboTextP1: {fileID: 2023071002}
+  comboTextP2: {fileID: 167579745}
 --- !u!4 &532453389
 Transform:
   m_ObjectHideFlags: 0
@@ -28673,18 +28665,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 92540666}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1367810747 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7057712799085387070, guid: e031f0d823763e2489e16a2dba47996a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1907713812}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &1409352634 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7937869105443849699, guid: 41aa72f43de7d4643b776fc0da344a7c,
