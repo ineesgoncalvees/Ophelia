@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
     private Animator ophelia;
     [SerializeField]
     private PSHolder[] particleSystems;
+    [SerializeField]
+    private ParticleSystem rasto;
 
     private bool miss;
     private bool isPaused;
@@ -78,6 +80,22 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI comboTextP1;
     [SerializeField]
     private TextMeshProUGUI comboTextP2;
+    [SerializeField]
+    private TextMeshProUGUI finalPointsTextP1;
+    [SerializeField]
+    private TextMeshProUGUI maxComboTextP1;
+    [SerializeField]
+    private TextMeshProUGUI finalPointsTextP2;
+    [SerializeField]
+    private TextMeshProUGUI maxComboTextP2;
+    [SerializeField]
+    private TextMeshProUGUI youWinP1;
+    [SerializeField]
+    private TextMeshProUGUI youWinP2;
+    [SerializeField]
+    private TextMeshProUGUI youLoseP1;
+    [SerializeField]
+    private TextMeshProUGUI youLoseP2;
 
     public bool IsMultiplayer => isMultiplayer;
     public int P1Score { get; set; }
@@ -104,6 +122,10 @@ public class GameManager : MonoBehaviour
         menuPauseP1.SetActive(false);
         menuPauseP2.SetActive(false);
         fullCombo.GetComponent<TextMeshProUGUI>().enabled = false;
+        youWinP1.GetComponent<TextMeshProUGUI>().enabled = false;
+        youWinP2.GetComponent<TextMeshProUGUI>().enabled = false;
+        youLoseP1.GetComponent<TextMeshProUGUI>().enabled = false;
+        youLoseP2.GetComponent<TextMeshProUGUI>().enabled = false;
         Time.timeScale = 1;
     }
 
@@ -250,10 +272,34 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator FinalPainel()
     {
-        yield return new WaitForSeconds(4);
-        finalPainel.SetActive(true);
-        finalPointsText.text = "" + currentScore;
-        maxComboText.text = "" + maxCombo;
+        if (IsMultiplayer)
+        {
+            yield return new WaitForSeconds(4);
+            finalPainel.SetActive(true);
+            finalPointsTextP1.text = "" + P1Score;
+            maxComboTextP1.text = "" + maxComboP1;
+            finalPointsTextP2.text = "" + P2Score;
+            maxComboTextP2.text = "" + maxComboP2;
+
+            if(P1Score > P2Score)
+            {
+                youWinP1.GetComponent<TextMeshProUGUI>().enabled = true;
+                youLoseP2.GetComponent<TextMeshProUGUI>().enabled = true;
+            }
+            else
+            {
+                youWinP2.GetComponent<TextMeshProUGUI>().enabled = true;
+                youLoseP1.GetComponent<TextMeshProUGUI>().enabled = true;
+            }
+        }
+        else
+        {
+            yield return new WaitForSeconds(4);
+            rasto.Stop();
+            finalPainel.SetActive(true);
+            finalPointsText.text = "" + currentScore;
+            maxComboText.text = "" + maxCombo;
+        }
     }
 
     private void MusicEnd()

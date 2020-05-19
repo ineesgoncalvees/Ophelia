@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Multi_TheNameOfLife 1.unity
     guid: bf1a78f68a3858f4d99b1bb18c8cc542
+  - enabled: 1
+    path: Assets/Scenes/Multi_Beat.unity
+    guid: d26c87248b9e9af46a774048940a3120
   m_configObjects: {}

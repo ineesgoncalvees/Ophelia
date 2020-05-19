@@ -5975,14 +5975,12 @@ MonoBehaviour:
   currentScore: 0
   currentCombo: 0
   maxCombo: 0
-  isMultiplayer: 0
   musica: {fileID: 965307810}
   pointsText: {fileID: 846476107}
   comboText: {fileID: 2023071002}
   finalPointsText: {fileID: 451711207}
   maxComboText: {fileID: 1367810747}
   finalPainel: {fileID: 2093068915}
-  menuPause: {fileID: 439152942}
   fullCombo: {fileID: 212425906}
   ophelia: {fileID: 1177742460}
   particleSystems:
@@ -6026,6 +6024,22 @@ MonoBehaviour:
     - {fileID: 320499049}
     - {fileID: 1409352634}
     - {fileID: 1955592576}
+  rasto: {fileID: 1714894898}
+  isMultiplayer: 0
+  menuPauseP1: {fileID: 439152942}
+  menuPauseP2: {fileID: 439152942}
+  pointsTextP1: {fileID: 0}
+  pointsTextP2: {fileID: 0}
+  comboTextP1: {fileID: 0}
+  comboTextP2: {fileID: 0}
+  finalPointsTextP1: {fileID: 0}
+  maxComboTextP1: {fileID: 0}
+  finalPointsTextP2: {fileID: 0}
+  maxComboTextP2: {fileID: 0}
+  youWinP1: {fileID: 212425906}
+  youWinP2: {fileID: 212425906}
+  youLoseP1: {fileID: 212425906}
+  youLoseP2: {fileID: 212425906}
 --- !u!4 &532453389
 Transform:
   m_ObjectHideFlags: 0
