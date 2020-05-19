@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour
     public int maxCombo;
 
     [SerializeField]
-    private bool isMultiplayer;
-    [SerializeField]
     private AudioSource musica;
     // Variáveis para mostrar os pontos e combo ao jogador
     [SerializeField]
@@ -43,11 +41,11 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI maxComboText;
     [SerializeField]
     private GameObject finalPainel;
-    [SerializeField]
-    private GameObject menuPause;
     // Variável que vai guardar fullcombo
     [SerializeField]
     private TextMeshProUGUI fullCombo;
+    [SerializeField]
+    private Animator ophelia;
     [SerializeField]
     private PSHolder[] particleSystems;
 
@@ -59,6 +57,13 @@ public class GameManager : MonoBehaviour
     private bool isDone;
 
     private Scene activeScene;
+
+    [SerializeField][Header("Multiplayer Settings")]
+    private bool isMultiplayer;
+    [SerializeField]
+    private GameObject menuPauseP1;
+    [SerializeField]
+    private GameObject menuPauseP2;
 
     // Intancia da classe GameManager
     public static GameManager instance;
@@ -78,7 +83,8 @@ public class GameManager : MonoBehaviour
         isDone = false;
         musicStarted = false;
         finalPainel.SetActive(false);
-        menuPause.SetActive(false);
+        menuPauseP1.SetActive(false);
+        menuPauseP2.SetActive(false);
         fullCombo.GetComponent<TextMeshProUGUI>().enabled = false;
         Time.timeScale = 1;
     }
@@ -120,6 +126,11 @@ public class GameManager : MonoBehaviour
 
         maxCombo = Mathf.Max(currentCombo, maxCombo);
 
+        if (currentCombo % 10 == 0)
+        {
+            ophelia.SetTrigger("happy");
+        }
+
         ActivatePS(iButton, type);
     }
 
@@ -136,6 +147,7 @@ public class GameManager : MonoBehaviour
         currentCombo = 0;
         comboText.text = "" + currentCombo;
         miss = true;
+        ophelia.SetTrigger("missed");
 
         ActivatePS(iButton, type);
     }
@@ -213,7 +225,8 @@ public class GameManager : MonoBehaviour
             isPaused = true;
             isActive = false;
             musica.Pause();
-            menuPause.SetActive(true);
+            menuPauseP1.SetActive(true);
+            menuPauseP2.SetActive(true);
         }
         else
         {
@@ -221,7 +234,8 @@ public class GameManager : MonoBehaviour
             isPaused = false;
             isActive = true;
             musica.UnPause();
-            menuPause.SetActive(false);
+            menuPauseP1.SetActive(false);
+            menuPauseP2.SetActive(false);
         }
     }
 }

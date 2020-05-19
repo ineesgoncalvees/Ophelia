@@ -5,22 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: a4517d20906a4544995612c9a21439dc
-  - enabled: 0
-    path: Assets/Scenes/SinglePlayer/Musica1.unity
-    guid: b3b7031417825a942816bdb990d94365
-  - enabled: 0
-    path: Assets/Scenes/SinglePlayer/Musica2.unity
-    guid: c308b303b02cb444e8037434b241d4ab
-  - enabled: 0
-    path: Assets/Scenes/Multiplayer/Musica3.unity
-    guid: 16335f1a91c1b4247846b0f8fb2e3fce
-  - enabled: 0
-    path: Assets/Scenes/Multiplayer/Musica4.unity
-    guid: 4390cd305c4df9548b9336def76bf890
   - enabled: 1
-    path: Assets/Scenes/TheNameOfLife.unity
+    path: Assets/Scenes/Single_TheNameOfLife.unity
     guid: bc9cb233c0e43454297c08c53f55bf8e
+  - enabled: 1
+    path: Assets/Scenes/Single_Beat.unity
+    guid: 284b0fd2fa33ea044bdbf93b57150459
+  - enabled: 1
+    path: Assets/Scenes/Multi_TheNameOfLife 1.unity
+    guid: bf1a78f68a3858f4d99b1bb18c8cc542
   m_configObjects: {}
