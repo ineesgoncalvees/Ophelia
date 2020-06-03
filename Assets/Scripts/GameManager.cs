@@ -47,6 +47,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Animator ophelia;
     [SerializeField]
+    private Animator nuvem_Left;
+    [SerializeField]
+    private Animator nuvem_Right;
+    [SerializeField]
     private PSHolder[] particleSystems;
     [SerializeField]
     private ParticleSystem rasto;
@@ -342,6 +346,8 @@ public class GameManager : MonoBehaviour
         if (!isPaused && isActive)
         {
             Time.timeScale = 0;
+            nuvem_Left.SetTrigger("pause");
+            nuvem_Right.SetTrigger("pause");
             isPaused = true;
             isActive = false;
             musica.Pause();
