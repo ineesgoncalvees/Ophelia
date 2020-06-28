@@ -123,7 +123,7 @@ MonoBehaviour:
     isHold: 0
     slot: 0
     isRight: 1
-  - time: 15.965765
+  - time: 16
     isHold: 0
     slot: 3
     isRight: 0
@@ -131,15 +131,15 @@ MonoBehaviour:
     isHold: 0
     slot: 1
     isRight: 0
-  - time: 16.856369
+  - time: 17
     isHold: 0
     slot: 2
     isRight: 1
-  - time: 17.508333
+  - time: 17.8
     isHold: 0
     slot: 0
     isRight: 0
-  - time: 17.541658
+  - time: 17.8
     isHold: 0
     slot: 3
     isRight: 1
@@ -151,35 +151,35 @@ MonoBehaviour:
     isHold: 0
     slot: 0
     isRight: 1
-  - time: 19.475975
+  - time: 19.8
     isHold: 0
     slot: 0
     isRight: 0
-  - time: 19.475975
+  - time: 19.8
     isHold: 0
     slot: 3
     isRight: 1
-  - time: 19.817663
+  - time: 20.2
     isHold: 0
     slot: 1
     isRight: 0
-  - time: 19.83433
+  - time: 20.2
     isHold: 0
     slot: 2
     isRight: 1
-  - time: 20.184052
+  - time: 21
     isHold: 0
     slot: 2
     isRight: 0
-  - time: 20.184052
+  - time: 21
     isHold: 0
     slot: 1
     isRight: 1
-  - time: 21.080618
+  - time: 21.6
     isHold: 0
     slot: 3
     isRight: 0
-  - time: 21.080618
+  - time: 21.6
     isHold: 0
     slot: 0
     isRight: 1

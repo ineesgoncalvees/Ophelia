@@ -119,11 +119,11 @@ MonoBehaviour:
     isHold: 0
     slot: 2
     isRight: 1
-  - time: 12.956575
+  - time: 13.5
     isHold: 0
     slot: 2
     isRight: 0
-  - time: 12.956575
+  - time: 13.5
     isHold: 0
     slot: 1
     isRight: 1
@@ -151,7 +151,7 @@ MonoBehaviour:
     isHold: 0
     slot: 1
     isRight: 1
-  - time: 15.228636
+  - time: 15.8
     isHold: 0
     slot: 2
     isRight: 0
