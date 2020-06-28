@@ -3,5 +3,6 @@
     Perfect,
     Great,
     Good,
-    Miss
+    Miss,
+    Deafult
 }

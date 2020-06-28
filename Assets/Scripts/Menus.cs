@@ -49,6 +49,10 @@ public class Menus : MonoBehaviour
     private AudioSource songThreePreview;
     [SerializeField]
     private AudioSource songFourPreview;
+    [SerializeField]
+    private AudioSource backgroundMusic;
+
+    private bool isPlaying;
 
     /// <summary>
     /// Método Start() chamado no princípio do programa, mas depois do Awake()
@@ -70,6 +74,8 @@ public class Menus : MonoBehaviour
         coverTwo.gameObject.SetActive(false);
         coverThree.gameObject.SetActive(false);
         coverFour.gameObject.SetActive(false);
+
+        isPlaying = true;
     }
 
     /// <summary>
@@ -113,6 +119,12 @@ public class Menus : MonoBehaviour
         coverTwo.gameObject.SetActive(false);
         songOnePreview.Play();
         songTwoPreview.Stop();
+
+        if (isPlaying)
+        {
+            backgroundMusic.Pause();
+            isPlaying = false;
+        }
     }
 
     /// <summary>
@@ -125,6 +137,12 @@ public class Menus : MonoBehaviour
         coverTwo.gameObject.SetActive(true);
         songTwoPreview.Play();
         songOnePreview.Stop();
+
+        if (isPlaying)
+        {
+            backgroundMusic.Pause();
+            isPlaying = false;
+        }
     }
 
     public void SongThree() {
@@ -132,6 +150,12 @@ public class Menus : MonoBehaviour
         coverFour.gameObject.SetActive(false);
         songThreePreview.Play();
         songFourPreview.Stop();
+
+        if (isPlaying)
+        {
+            backgroundMusic.Pause();
+            isPlaying = false;
+        }
     }
 
     /// <summary>
@@ -144,6 +168,12 @@ public class Menus : MonoBehaviour
         coverFour.gameObject.SetActive(true);
         songFourPreview.Play();
         songThreePreview.Stop();
+
+        if (isPlaying)
+        {
+            backgroundMusic.Pause();
+            isPlaying = false;
+        }
     }
     /// <summary>
     /// Método que corre o menu da história
@@ -205,5 +235,11 @@ public class Menus : MonoBehaviour
         coverTwo.gameObject.SetActive(false);
 
         main.SetActive(true);
+
+        if (!isPlaying)
+        {
+            backgroundMusic.UnPause();
+            isPlaying = true;
+        }
     }
 }

@@ -16,6 +16,12 @@ public class NotesManager : MonoBehaviour
     private float minDistance;
     [SerializeField]
     private int iButton;
+    [SerializeField]
+    private AudioSource perfect;
+    [SerializeField]
+    private AudioSource great;
+    [SerializeField]
+    private AudioSource deafult;
 
     private Button button;
     private GameObject currentNote;
@@ -51,6 +57,15 @@ public class NotesManager : MonoBehaviour
         }
     }
 
+    public void Deafult()
+    {
+        if (currentNote == null)
+        {
+            GameManager.instance.NoteEmpty(iButton, HitType.Deafult);
+            deafult.Play();
+        }
+    }
+
     /// <summary>
     /// Método chamado quando um collider 2D passa pelos botões que são trigger
     /// </summary>
@@ -76,14 +91,6 @@ public class NotesManager : MonoBehaviour
         // Se houver uma currentNote e se estiver ativa
         if (currentNote != null && currentNote.activeInHierarchy)
         {
-            //if (other.GetComponent<NoteBeahviour>().isHold == true)
-            //{
-            //    GameManager.instance.NoteMiss(iButton, HitType.Miss);
-            //    currentNote = null;
-            //    RemoveClickListener();
-            //}
-            //// Se for uma nota que não o hold
-            //else 
             if ((other.tag == "Notes"))
             {
                 GameManager.instance.NoteMiss(iButton, HitType.Miss);
@@ -147,45 +154,6 @@ public class NotesManager : MonoBehaviour
                     GameManager.instance.UpdateSingleScore();
                 }
             }
-            else if (currentNote.GetComponent<NoteBehaviour>().isHold == true)
-            {
-                print("got it 1");
-                float distance = Vector3.Distance(note.transform.position, transform.position);
-                float score = 0;
-                print("nota " + currentNote);
-                print("distanciamin " + minDistance);
-                print("distancia " + distance);
-
-                minDistance = 600;
-
-                if (distance < minDistance)
-                {
-                    score = NoteHit(distance);
-                }
-
-                holdScore += score;
-
-                if (!firstHoldNoteHit)
-                {
-                    print("got it");
-                    firstHoldNoteHit = true;
-                    currentNote = null;
-                }
-                else
-                {
-                    if (score == 0)
-                    {
-                        holdScore = 0;
-                    }
-
-                    ResetHoldScore();
-                    //GameManager.instance.currentScore += (int)score;
-                    //GameManager.instance.UpdateScore();
-                }
-
-                GameManager.instance.currentScore += (int)score;
-                GameManager.instance.UpdateSingleScore();
-            }
         }
     }
 
@@ -198,36 +166,20 @@ public class NotesManager : MonoBehaviour
         if (score <= 150 && score > 120)
         {
             GameManager.instance.NoteHit(iButton, HitType.Perfect);
+            perfect.Play();
         }
         else if (score <= 120 && score > 50)
         {
             GameManager.instance.NoteHit(iButton, HitType.Great);
+            great.Play();
         }
         else if (score <= 50 && score > 0)
         {
             GameManager.instance.NoteHit(iButton, HitType.Good);
+            great.Play();
         }
 
         return score;
-    }
-
-    public void StartHold()
-    {
-        if (currentNote != null)
-        {
-            if (currentNote.GetComponent<NoteBehaviour>().isHold == true)
-            {
-                isPressed = true;
-                CheckHit(currentNote);
-            }
-        }
-    }
-
-    private void ResetHoldScore()
-    {
-        holdScore = 0;
-        firstHoldNoteHit = false;
-        secondHoldNoteHit = false;
     }
 
     private void OnDrawGizmos()

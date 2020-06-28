@@ -47,13 +47,23 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Animator ophelia;
     [SerializeField]
+    private Animator opheliaGroup;
+    [SerializeField]
     private Animator nuvem_Left;
     [SerializeField]
     private Animator nuvem_Right;
     [SerializeField]
+    private Animator restartButton;
+    [SerializeField]
+    private Animator backButton;
+    [SerializeField]
+    private Animator UI;
+    [SerializeField]
     private PSHolder[] particleSystems;
     [SerializeField]
     private ParticleSystem rasto;
+    [SerializeField]
+    private ParticleSystem stars;
 
     private bool miss;
     private bool isPaused;
@@ -61,6 +71,7 @@ public class GameManager : MonoBehaviour
     private bool musicStarted;
     private bool ended;
     private bool isDone;
+    private int nStars;
 
     private int currentComboP1;
     private int currentComboP2;
@@ -84,6 +95,10 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI comboTextP1;
     [SerializeField]
     private TextMeshProUGUI comboTextP2;
+    [SerializeField]
+    private Animator UI1;
+    [SerializeField]
+    private Animator UI2;
     [SerializeField]
     private TextMeshProUGUI finalPointsTextP1;
     [SerializeField]
@@ -174,6 +189,8 @@ public class GameManager : MonoBehaviour
                 comboTextP1.text = "" + currentComboP1;
                 maxComboP1 = Mathf.Max(currentComboP1, maxComboP1);
 
+                UI1.SetTrigger("hit");
+
                 if (currentComboP1 % 10 == 0)
                 {
                     ophelia.SetTrigger("happy");
@@ -185,6 +202,8 @@ public class GameManager : MonoBehaviour
 
                 comboTextP2.text = "" + currentComboP2;
                 maxComboP2 = Mathf.Max(currentComboP2, maxComboP2);
+
+                UI2.SetTrigger("hit");
 
                 if (currentComboP2 % 10 == 0)
                 {
@@ -199,9 +218,13 @@ public class GameManager : MonoBehaviour
 
             maxCombo = Mathf.Max(currentCombo, maxCombo);
 
+            UI.SetTrigger("hit");
+
             if (currentCombo % 10 == 0)
             {
+                nStars += 10;
                 ophelia.SetTrigger("happy");
+                stars.Emit(nStars);
             }
         }
 
@@ -232,6 +255,8 @@ public class GameManager : MonoBehaviour
                 comboTextP1.text = "" + currentComboP1;
                 miss = true;
                 ophelia.SetTrigger("missed");
+                UI1.SetTrigger("miss");
+                opheliaGroup.SetTrigger("miss");
             }
             else
             {
@@ -239,6 +264,8 @@ public class GameManager : MonoBehaviour
                 comboTextP2.text = "" + currentComboP2;
                 miss = true;
                 ophelia.SetTrigger("missed");
+                UI2.SetTrigger("miss");
+                opheliaGroup.SetTrigger("miss");
             }
         }
         else
@@ -247,8 +274,15 @@ public class GameManager : MonoBehaviour
             comboText.text = "" + currentCombo;
             miss = true;
             ophelia.SetTrigger("missed");
+            UI.SetTrigger("miss");
+            opheliaGroup.SetTrigger("miss");
         }
 
+        ActivatePS(iButton, type);
+    }
+
+    public void NoteEmpty(int iButton, HitType type)
+    {
         ActivatePS(iButton, type);
     }
 
@@ -348,6 +382,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             nuvem_Left.SetTrigger("pause");
             nuvem_Right.SetTrigger("pause");
+            restartButton.SetTrigger("pause");
+            backButton.SetTrigger("pause");
             isPaused = true;
             isActive = false;
             musica.Pause();
